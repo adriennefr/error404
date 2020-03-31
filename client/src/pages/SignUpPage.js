@@ -1,9 +1,9 @@
 import React from 'react';
-import SignUp from '../components/SignUpForm/index'
+import SignUpCard from '../components/SignUpCard/index';
 
 function SignUpPage() {
     return(
-        <SignUp />
+        <SignUpCard />
     )
 }
 
