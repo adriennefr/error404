@@ -1,0 +1,2 @@
+(this.webpackJsonpfitmoodji=this.webpackJsonpfitmoodji||[]).push([[0],[,,,function(e,t,n){e.exports=n(10)},,,,,function(e,t,n){},function(e,t,n){},function(e,t,n){"use strict";n.r(t);var o=n(0),a=n.n(o),r=n(2),c=n.n(r);n(8),n(9);var l=function(){return a.a.createElement("div",{className:"App"},a.a.createElement("h1",null,"Hello World"))};c.a.render(a.a.createElement(a.a.StrictMode,null,a.a.createElement(l,null)),document.getElementById("root"))}],[[3,1,2]]]);
+//# sourceMappingURL=main.48afef10.chunk.js.map
