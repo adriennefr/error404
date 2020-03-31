@@ -2,8 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import SignUp from './SignUp/index'
-import './style.css'
+import SignIn from '../SignIn/SignIn'
+import './OutlinedCard.css'
 
 const useStyles = makeStyles({
   root: {
@@ -22,15 +22,15 @@ const useStyles = makeStyles({
   },
 });
 
-export default function SignUpCard() {
+export default function OutlinedCard() {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
 
   return (
     <Card className={classes.root} variant="outlined">
       <CardContent>
-        <SignUp />
+        <SignIn />
       </CardContent>
     </Card>
+    
   );
 }

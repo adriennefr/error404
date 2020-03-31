@@ -1,7 +1,7 @@
 import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
+// import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -50,11 +50,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignIn() {
   const classes = useStyles();
-
+  console.log("I have no errors")
   return (
     <Container component="main" maxWidth="xs" className="loginContainer">
-      <CssBaseline />
-      <div className={classes.paper}>
+      {/* <CssBaseline /> */}
+      <>
+        <h1>Logo Here</h1>
         <Avatar className={classes.avatar}>
           {/* <LockOutlinedIcon /> */}
         </Avatar>
@@ -100,13 +101,13 @@ export default function SignIn() {
           </Button>
           <Grid container>
             <Grid item>
-              <Link href={SignUpPage} variant="body2">
-                {"Don't have an account? Sign Up"}
+              <Link href="/signup" variant="body2">
+                Don't have an account? Sign Up
               </Link>
             </Grid>
           </Grid>
         </form>
-      </div>
+      </>
       <Box mt={8}>
         <Copyright />
       </Box>
