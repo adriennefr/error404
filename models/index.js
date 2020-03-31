@@ -1,13 +1,14 @@
-
-module.exports = {
-    User: require("./user")
-}
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
 const FitmoodjiUser = new Schema({
-    name: {
+    firstName: {
+        type: String,
+        trim: true,
+        required: "Enter your name"
+    },
+    lastName: {
         type: String,
         trim: true,
         required: "Enter your name"
