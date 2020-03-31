@@ -1,3 +1,7 @@
+
+module.exports = {
+    User: require("./user")
+}
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
@@ -36,3 +40,4 @@ const FitmoodjiUser = new Schema({
 const Workout = mongoose.model("User", FitmoodjiUser);
 
 module.exports = Workout; 
+
