@@ -26,11 +26,14 @@ export default function OutlinedCard() {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root} variant="outlined">
-      <CardContent>
-        <SignIn />
-      </CardContent>
-    </Card>
-    
+
+    <React.Fragment>
+      <h1 id="logo">Logo Here</h1>
+      <Card className={classes.root} id="signInCard" variant="outlined">
+        <CardContent>
+          <SignIn />
+        </CardContent>
+      </Card>
+    </React.Fragment>
   );
 }

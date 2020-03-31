@@ -2,8 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import SignUp from '../SignUpForm/index'
-import './style.css'
+import SignUp from '../SignUpForm/SignUpForm'
+import './SignUpCard.css'
 
 const useStyles = makeStyles({
   root: {
@@ -27,7 +27,7 @@ export default function SignUpCard() {
   const bull = <span className={classes.bullet}>•</span>;
 
   return (
-    <Card className={classes.root} variant="outlined">
+    <Card className={classes.root} id="signUpCard" variant="outlined">
       <CardContent>
         <SignUp />
       </CardContent>

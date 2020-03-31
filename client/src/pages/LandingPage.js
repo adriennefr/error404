@@ -5,7 +5,6 @@ import './style.css'
 function LandingPage() {
     return(
         <OutlinedCard />
-        // <h1>Hello World</h1>
     );
 }
 
