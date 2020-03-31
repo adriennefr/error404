@@ -11,9 +11,7 @@ import Box from '@material-ui/core/Box';
 // import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import SignUpPage from '../../pages/SignUpPage'
-import './style.css'
+import './SignIn.css'
 
 function Copyright() {
   return (
@@ -52,10 +50,9 @@ export default function SignIn() {
   const classes = useStyles();
   console.log("I have no errors")
   return (
-    <Container component="main" maxWidth="xs" className="loginContainer">
-      {/* <CssBaseline /> */}
+    
+      
       <>
-        <h1>Logo Here</h1>
         <Avatar className={classes.avatar}>
           {/* <LockOutlinedIcon /> */}
         </Avatar>
@@ -96,6 +93,7 @@ export default function SignIn() {
             color="#ef8354"
             id="loginBtn"
             className={classes.submit} 
+            href="/homepage"
           >
             Sign In
           </Button>
@@ -108,9 +106,9 @@ export default function SignIn() {
           </Grid>
         </form>
       </>
-      <Box mt={8}>
-        <Copyright />
-      </Box>
-    </Container>
+      // <Box mt={8}>
+      //   <Copyright />
+      // </Box>
+    
   );
 }
