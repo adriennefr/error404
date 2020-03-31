@@ -9,6 +9,7 @@ import ChallengePage from './pages/ChallengePage';
 
 function App() {
   return (
+
     <Router>
       <Switch>
         <Route exact path="/" component={LandingPage} />
@@ -22,6 +23,7 @@ function App() {
 
     // <LandingPage />
   
+
   );
 }
 
