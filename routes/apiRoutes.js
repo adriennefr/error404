@@ -14,13 +14,14 @@ let authentication = require("./authentication")
         //console.log(req.body);
         const { firstName, lastName, email, password } = req.body;
         console.log('signing up...')
+        console.log(req.body)
         let hashedPassword = await authentication.create(password);
         
         // Decrypt pasword function
         // after done, then use new variable in password 
         db.User.create({
-            firstName: lastName,
-            lastName: firstName,
+            firstName: firstName,
+            lastName: lastName,
             password: hashedPassword,
             email: email
         }).then(function(user) {
