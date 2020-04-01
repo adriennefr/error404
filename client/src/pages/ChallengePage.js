@@ -1,7 +1,7 @@
 import React from "react";
 import StopwatchHooks from '../components/Stopwatch/StopwatchHooks';
 import FinishBtn from '../components/FinishBtn/FinishBtn';
-import ChallengeItem from '../components/ChallengeItem/ChallengeItem';
+import ChallengeCard from '../components/ChallengeCard/ChallengeCard';
 
 function ChallengePage() {
 
@@ -12,7 +12,7 @@ function ChallengePage() {
                     <br />
                 <FinishBtn href="/homepage" />
                     <br />
-                <ChallengeItem />
+                <ChallengeCard />
 
         </div>
     );

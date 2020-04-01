@@ -3,3 +3,8 @@
     background-color: #ef8354;
     color: white;
 }
+
+.chooseAvatar {
+    display: flex;
+    justify-content: center;
+}
