@@ -1,8 +1,9 @@
 const db = require('../models')
+console.log(db.User);
 const express = require('express');
 const router = express.Router();
 const schema = require("../models/index");
-let authentication = require("./authRoute")
+let authentication = require("./authentication")
 
     // router.route('/signup') 
     // // req.body is the information coming from the front-end. Usually it's an object.
@@ -11,18 +12,19 @@ let authentication = require("./authRoute")
     //this is a sign up route and to create a new user...
     router.post("/signup", async function(req, res) {
         //console.log(req.body);
-        let hashedPassword = await authentication.create(req.body.password);
-        //const { name, email, password } = req.body;
+        const { firstName, lastName, email, password } = req.body;
+        console.log('signing up...')
+        let hashedPassword = await authentication.create(password);
+        
         // Decrypt pasword function
         // after done, then use new variable in password 
         db.User.create({
-            name: req.body.firstName,
-            lastName: req.body.lastName,
-            hash: hashedPassword.hash,
-            salt: hashedPassword.salt,
-            email: req.body.email
+            firstName: lastName,
+            lastName: firstName,
+            password: hashedPassword,
+            email: email
         }).then(function(user) {
-            res.json(`User ${name} created with ${email}`);
+            res.json(`User ${user.firstName} ${user.lastName} created with ${user.email}`);
         }).catch(function(err) {
             console.log(err);
         });
@@ -31,30 +33,30 @@ let authentication = require("./authRoute")
     //Login Route, Verify User
     router.post('/login', (req,res)=>{
         let userEmail = req.body.email;
-        let userPass = req.body.password;
-        db.User.findall({
-            where: {
-                email: userEmail,
-                password: userPass,
-            }
-        }).then(function (results) {
-            console.log(results);
-            passport.verify(req.body.password, result.salt, function(hash){
-                    if (result.hash === hash.hash){
-                        req.results.user = {
-                            email: result.userEmail,   
+        db.User.findOne({
+                email: userEmail
+        }).then(function(result) {
+            if(result){
+               authentication.verify(req.body.password, function(hash){
+                    if (result.password === hash.hash){
+                        req.user = {
+                            email: result.email
                         }
-                        res.json({login:true});
+                        res.json(result);
                     }else{
-                        res.json({login: false});
-                    }
+                        res.json('Incorrect password!');
+                    } 
             })
+        }else{
+            res.json('No user by that email!')
+        }
         }).catch(err=> {
+            console.log(err)
             res.send(err)
         });
        });
 //this needs to update user "challenge of the day" everytime that button is pressed
-       router.put("")
+      // router.put("")
 
 
 

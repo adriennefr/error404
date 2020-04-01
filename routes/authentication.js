@@ -4,9 +4,9 @@ const crypto = require('crypto');
 module.exports = {
 
   create: async function (password) {
-    let salt = crypto.randomBytes(32).toString('hex');
-    let rval = await this.hash(password, salt);
-    return rval;
+    let rval = await this.hash(password, 'kitty');
+    console.log(rval)
+    return rval.hash;
   },
 
   //
@@ -17,8 +17,8 @@ module.exports = {
   // the function returns true of the user entered the
   // correct password
   //
-  verify: async function (password, salt, cb) {
-    let hash = await this.hash(password, salt);
+  verify: async function (password, cb) {
+    let hash = await this.hash(password, 'kitty');
     cb(hash)
   },
 
