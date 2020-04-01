@@ -3,7 +3,7 @@ const app = express();
 const path = require('path')
 const PORT = process.env.PORT || 3001;
 const mongoose = require('mongoose');
-const db = require('./models');
+const userdb = require('./models/user');
 const apiRoutes = require('./routes/apiRoutes');
 // const authRoutes = require('./routes/authRoutes');
 
