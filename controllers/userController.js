@@ -1,4 +1,4 @@
-const db = require('../models');
+const db = require('../models/user');
 
 // Define methods for userController
 // export module for all methods

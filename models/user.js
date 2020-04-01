@@ -1,14 +1,44 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
-  name: String, // String is shorthand for {type: String}
-  email: String,
-  password: String,
-  date: { type: Date, default: Date.now },
+const FitmoodjiUser = new Schema({
+    firstName: {
+        type: String,
+        trim: true,
+        required: "Enter your name"
+    },
+    lastName: {
+        type: String,
+        trim: true,
+        required: "Enter your name"
+    },
+    email: {
+        type: String,
+        trim: true,
+        required: "Enter your name"
+    },
+    password: {
+        type: String,
+        trim: true,
+        required: "Enter your name"
+    },
+    ownWorkout: {
+        day: {
+            type: Date,
+            default: Date.now
+        },
+        exercises: [
+            {
+                type: String,
+                trim: true,
+                required: "Enter exercise, sets, and repetitions."
+            }
+        ]
+    }
 });
 
-const User = mongoose.model("User", userSchema);
+const Workout = mongoose.model("User", FitmoodjiUser);
 
-module.exports = User
+module.exports = Workout; 
 

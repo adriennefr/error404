@@ -1,4 +1,4 @@
-const db = require('../models')
+const db = require('../models/user')
 const express = require('express');
 const router = express.Router();
 const userController = require("../controllers/userController");
