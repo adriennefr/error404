@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
     grid: {
@@ -23,14 +24,14 @@ export default function OutlinedButtons() {
 
     return (
         <Grid className={classes.grid} alignContent="center">
-            {/* <div> */}
                 <Button variant="outlined" size="small" color="primary" className={classes.margin}>
-                    Small
+                    <Typography variant="caption">
+                        Challenge
+                    </Typography>
                 </Button>
                 <Button variant="outlined" size="small" color="primary" className={classes.margin}>
-                    Medium
+                    Do Your Own
                 </Button>
-            {/* </div> */}
         </Grid>
     )
 };
