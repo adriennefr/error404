@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 // import CssBaseline from '@material-ui/core/CssBaseline';
@@ -9,9 +9,13 @@ import Grid from '@material-ui/core/Grid';
 // import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+
+import API from '../../utils/API'
+
 import FemaleSignUp from '../FemaleAvatar/FemaleSignUp';
 import MaleSignUp from '../MaleAvatar/MaleSignUp';
 import NonbinarySignUp from '../NonbinaryAvatar/NonbinarySignUp';
+
 
 
 
@@ -50,6 +54,17 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUp() {
   const classes = useStyles();
+  const [form, setForm] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: ''
+  });
+
+  const signUp =()=>{
+    console.log('signingup...')
+    API.signUp(form).then(res=>console.log(res))
+  }
 
   return (
     <>
@@ -65,7 +80,6 @@ export default function SignUp() {
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
-                autoComplete="fname"
                 name="firstName"
                 variant="outlined"
                 required
@@ -73,6 +87,7 @@ export default function SignUp() {
                 id="firstName"
                 label="First Name"
                 autoFocus
+                onChange={(e)=> setForm({...form, firstName:e.target.value})}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -83,7 +98,7 @@ export default function SignUp() {
                 id="lastName"
                 label="Last Name"
                 name="lastName"
-                autoComplete="lname"
+                onChange={(e)=> setForm({...form, lastName:e.target.value})}
               />
             </Grid>
             <Grid item xs={12}>
@@ -94,7 +109,7 @@ export default function SignUp() {
                 id="email"
                 label="Email Address"
                 name="email"
-                autoComplete="email"
+                onChange={(e)=> setForm({...form, email:e.target.value})}
               />
             </Grid>
             <Grid item xs={12}>
@@ -106,7 +121,7 @@ export default function SignUp() {
                 label="Password"
                 type="password"
                 id="password"
-                autoComplete="current-password"
+                onChange={(e)=> setForm({...form, password:e.target.value})}
               />
             </Grid>
             <div>
@@ -119,13 +134,12 @@ export default function SignUp() {
             </div>
           </Grid>
           <Button
-            type="submit"
             fullWidth
             variant="contained"
             color="#ef8354"
             id="signUpBtn"
             className={classes.submit}
-            href="/homepage"
+            onClick={()=>signUp()}
           >
             Sign Up
           </Button>
