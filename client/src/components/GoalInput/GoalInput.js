@@ -38,8 +38,8 @@ export default function TextFieldSizes() {
         setGoals(temp)
     }
 
-    const handleSave = (goalsArr) => {
-        API.setGoals(goalsArr).then(res => console.log(res))
+    const handleSave = (arr) => {
+        API.setGoals(arr).then(res => console.log(res))
     };
 
     return (
