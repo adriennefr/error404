@@ -1,5 +1,5 @@
 import React from 'react';
-import male from '../../assets/male.png'
+import male from '../../assets/images/male.png'
 import './style.css'
 
 function MaleSignUp() {

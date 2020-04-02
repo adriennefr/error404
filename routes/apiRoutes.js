@@ -55,11 +55,17 @@ router.post('/login', (req, res) => {
         } else {
             res.json('No user by that email!')
         }
-    }).catch(err => {
-        console.log(err)
-        res.send(err)
-    });
-});
+        }).catch(err=> {
+            console.log(err)
+            res.send(err)
+        });
+       });
+
+    // router.get('/api/goals', (req,res)=>{
+    //     res.json(JSON.stringify({data:['get ripped', 'drink protein', 'something something']}))
+    //     })
+    
+
 //this needs to update user "challenge of the day" everytime that button is pressed
 // router.put("")
 
@@ -67,6 +73,5 @@ router.get('/mood/:id', (req, res) => {
     // req.param.id for gender info...
     res.json({ path: "assets/moods/Female/3.mov" });
 })
-
 
 module.exports = router
