@@ -1,19 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import './Stopwatch.css'
 import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
 import { makeStyles } from '@material-ui/core/styles';
 import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
 import PauseCircleOutlineIcon from '@material-ui/icons/PauseCircleOutline';
 import RotateLeftIcon from '@material-ui/icons/RotateLeft';
 
 const useStyles = makeStyles((theme) => ({
+    root: {
+        minWidth: 275,
+        marginTop: "10%",
+        fontSize: "200%",
+    },
     button: {
         margin: theme.spacing(1),
     },
-    startBtn : {
+    startBtn: {
         backgroundColor: "rgb(145, 223, 191)",
     },
-    pauseBtn : {
+    pauseBtn: {
         backgroundColor: "rgb(230, 187, 109)",
     },
     resetBtn: {
@@ -66,10 +73,16 @@ function Stopwatch() {
 
     return (
         <div className="Stopwatch-display">
-            <div className="stopwatch">
-                {hours} : {minutes} : {seconds}
+
+            <Card className={classes.root} variant="outlined">
+                <CardContent>
+                    {hours} : {minutes} : {seconds}
+                </CardContent>
+            </Card>
+            {/* <div className="stopwatch"> */}
+                
                 {/* : {centiseconds} */}
-            </div>
+            {/* </div> */}
 
             <br />
 
@@ -78,7 +91,7 @@ function Stopwatch() {
                     variant="contained"
                     color="primary"
                     size="large"
-                    className={`${classes.button} ${classes.startBtn}`} 
+                    className={`${classes.button} ${classes.startBtn}`}
                     startIcon={<PlayCircleOutlineIcon />}
                     onClick={startTimer}
                 >
@@ -90,7 +103,7 @@ function Stopwatch() {
                     variant="contained"
                     color="primary"
                     size="large"
-                    className={`${classes.button} ${classes.pauseBtn}`} 
+                    className={`${classes.button} ${classes.pauseBtn}`}
                     startIcon={<PauseCircleOutlineIcon />}
                     onClick={pauseTimer}
                 >
@@ -102,7 +115,7 @@ function Stopwatch() {
                     variant="contained"
                     color="primary"
                     size="medium"
-                    className={`${classes.button} ${classes.startBtn}`} 
+                    className={`${classes.button} ${classes.startBtn}`}
                     startIcon={<PlayCircleOutlineIcon />}
                     onClick={startTimer}
                 >
@@ -114,7 +127,7 @@ function Stopwatch() {
                     variant="contained"
                     color="primary"
                     size="medium"
-                    className={`${classes.button} ${classes.resetBtn}`} 
+                    className={`${classes.button} ${classes.resetBtn}`}
                     startIcon={<RotateLeftIcon />}
                     onClick={resetTimer}
                 >
