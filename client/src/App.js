@@ -7,7 +7,6 @@ import Homepage from './pages/Homepage';
 import WorkoutDashboard from './pages/WorkoutDashboard';
 import DoYourOwn from './pages/DoYourOwn';
 import ChallengePage from './pages/ChallengePage';
-import NavBar from './components/NavBar/NavBar'
 
 function App() {
   return (
@@ -21,10 +20,11 @@ function App() {
         <Route exact path="/doyourown" component={DoYourOwn} />
         <Route exact path="/challenge" component={ChallengePage} />
       </Switch>
-      <NavBar />
     </Router>
 
   );
 }
 
 export default App;
+
+
