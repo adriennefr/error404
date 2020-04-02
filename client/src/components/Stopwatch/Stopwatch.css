@@ -7,5 +7,25 @@ h1 {
 }
 
 .stopwatch {
-    font-size: 2em;
+    font-size: 175%;
+    background-color: white;
+    padding: 10%;
+}
+
+.timerBtn {
+    font-size: 100%;
+    padding: 8%;
+    border-radius: 75%;
+}
+
+.startBtn {
+    background-color: #85FFCE;
+}
+
+.pauseBtn {
+    background-color: rgb(230, 187, 109);
+}
+
+.resetBtn {
+    background-color: rgb(121, 172, 192);
 }

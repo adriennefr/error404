@@ -6,7 +6,7 @@ import GoalInput from '../components/GoalInput/GoalInput'
 import NavBar from '../components/NavBar/NavBar'
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
+// import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
     background: {
@@ -21,7 +21,7 @@ function WorkoutPage() {
 
     return (
         <Container className={classes.background}>
-            <Typography variant="h4" align="center">Logo?</Typography>
+            
             <StopwatchHooks />
             <br />
             <FinishBtn href="/homepage" />
