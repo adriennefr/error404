@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
+// import Typography from '@material-ui/core/Typography';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -10,7 +10,7 @@ import BarChartIcon from '@material-ui/icons/BarChart';
 import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 import GroupIcon from '@material-ui/icons/Group';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
-import red from '@material-ui/core/colors/red';
+// import red from '@material-ui/core/colors/red';
 import { Link } from 'react-router-dom'
 
 // const theme = createMui(

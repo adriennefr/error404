@@ -13,8 +13,8 @@ const useStyles = makeStyles((theme) => ({
             margin: theme.spacing(1),
             width: 200,
         },
-        button: {
-            margin: theme.spacing(1),
+    button: {
+        margin: theme.spacing(2),
         }
     },
 }));
@@ -44,7 +44,7 @@ export default function TextFieldSizes() {
 
     return (
         <div className="goalInput">
-            <Grid container spacing={1}>
+            <Grid container spacing={2}>
 
                 {/* <TextField
                     label="Goal"

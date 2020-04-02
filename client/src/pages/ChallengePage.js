@@ -1,11 +1,12 @@
 import React from "react";
 import StopwatchHooks from '../components/Stopwatch/StopwatchHooks';
 import FinishBtn from '../components/FinishBtn/FinishBtn';
-import ChallengeItem from '../components/ChallengeItem/ChallengeItem';
+import ChallengeCard from '../components/ChallengeCard/ChallengeCard';
 import NavBar from '../components/NavBar/NavBar'
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
+import Logo from '../components/Logo/Logo'
 
 const useStyles = makeStyles((theme) => ({
     background: {
@@ -21,12 +22,12 @@ function ChallengePage() {
     return (
         <Container className={classes.background}>
             
-                <Typography variant="h4" align="center">Logo?</Typography>
+                <Logo />
                 <StopwatchHooks />
                 <br />
                 <FinishBtn href="/homepage" />
                 <br />
-                <ChallengeItem />
+                <ChallengeCard />
                 <NavBar />
         
         </Container>
