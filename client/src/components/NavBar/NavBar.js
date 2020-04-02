@@ -20,6 +20,10 @@ const useStyles = makeStyles((theme) => ({
     appBar: {
         top: 'auto',
         bottom: 0,
+        backgroundColor: "#4E5659",
+    },
+    buttonColor: {
+        color: "#85FFCE",
     },
 
 }));
@@ -34,25 +38,25 @@ export default function BottomAppBar() {
                         <Box mx="auto">
                             <Link to='/homepage'>
                                 <IconButton size='medium' >
-                                    <HomeIcon />
+                                    <HomeIcon className={classes.buttonColor}/>
                                 </IconButton>
                             </Link>
 
                             <IconButton size="medium" color="inherit">
-                                <BarChartIcon />
+                                <BarChartIcon className={classes.buttonColor}/>
                             </IconButton>
 
                             <Link to='/wokoutdashboard'>
                                 <IconButton size="medium" color="inherit">
-                                    <FitnessCenterIcon />
+                                    <FitnessCenterIcon className={classes.buttonColor}/>
                                 </IconButton>
                             </Link>
 
                             <IconButton size="medium" color="inherit">
-                                <GroupIcon />
+                                <GroupIcon className={classes.buttonColor}/>
                             </IconButton>
                             <IconButton size="medium" color="inherit">
-                                <AccountBoxIcon />
+                                <AccountBoxIcon className={classes.buttonColor}/>
                             </IconButton>
                         </Box>
                     </Toolbar>
