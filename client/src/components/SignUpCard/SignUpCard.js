@@ -27,10 +27,13 @@ export default function SignUpCard() {
   // const bull = <span className={classes.bullet}>•</span>;
 
   return (
-    <Card className={classes.root} id="signUpCard" variant="outlined">
-      <CardContent>
-        <SignUp />
-      </CardContent>
-    </Card>
+    <React.Fragment>
+      <h1 id="logo">Logo Here</h1>
+      <Card className={classes.root} id="signUpCard" variant="outlined">
+        <CardContent>
+          <SignUp />
+        </CardContent>
+      </Card>
+    </React.Fragment>
   );
 }
