@@ -11,17 +11,17 @@ const FitmoodjiUser = new Schema({
     lastName: {
         type: String,
         trim: true,
-        required: "Enter your name"
+        required: "Enter your lastname"
     },
     email: {
         type: String,
         trim: true,
-        required: "Enter your name"
+        required: "Enter your email"
     },
     password: {
         type: String,
         trim: true,
-        required: "Enter your name"
+        required: "Enter your password"
     },
     ownWorkout: {
         day: {
@@ -38,7 +38,6 @@ const FitmoodjiUser = new Schema({
     }
 });
 
-const Workout = mongoose.model("User", FitmoodjiUser);
+const User = mongoose.model("User", FitmoodjiUser);
 
-module.exports = Workout; 
-
+module.exports = User; 
