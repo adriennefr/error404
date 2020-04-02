@@ -23,7 +23,7 @@ const FitmoodjiUser = new Schema({
         trim: true,
         required: "Enter your password"
     },
-    ownWorkout: {
+    ownWorkout: [{
         day: {
             type: Date,
             default: Date.now
@@ -35,7 +35,7 @@ const FitmoodjiUser = new Schema({
                 required: "Enter exercise, sets, and repetitions."
             }
         ]
-    }
+    }]
 });
 
 const User = mongoose.model("User", FitmoodjiUser);

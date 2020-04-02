@@ -6,6 +6,7 @@ mongoose.connect("mongodb://localhost/workout", {
     useFindAndModify: false,
     useUnifiedTopology: true
 });
+// description: Deadlifts x 10 reps 
 
 let workoutSeed = [
     {
