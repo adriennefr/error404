@@ -1,5 +1,5 @@
 import React from 'react';
-import nonbinary from '../../assets/nonbinary.jpg'
+import nonbinary from '../../assets/images/nonbinary.jpg'
 import './style.css'
 
 
