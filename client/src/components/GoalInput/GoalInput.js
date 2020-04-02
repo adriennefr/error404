@@ -29,9 +29,6 @@ export default function TextFieldSizes() {
         API.getGoals().then(res => console.log(res))
     }, [])
 
-    // const handleFirstChange = () => {
-
-    // }
 
     const handleChange = (item) => {
         let key = item.getAttribute('name');
