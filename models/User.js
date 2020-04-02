@@ -23,6 +23,11 @@ const FitmoodjiUser = new Schema({
         trim: true,
         required: "Enter your password"
     },
+    avatar: {
+        type: String,
+        trim: true,
+        required: "Choose your avatar."
+    },
     ownWorkout: [{
         day: {
             type: Date,
