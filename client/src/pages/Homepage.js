@@ -1,17 +1,25 @@
 import React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import FitMoodji from '../components/Fitmoodji/Fitmoodji'
-import HomepageButtons from '../components/WorkoutButtons/WorkoutButtons'
+import NavBar from '../components/NavBar/NavBar'
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+    background: {
+        backgroundColor: "#B8C0DB",
+        height: "100vh"
+    },
+}));
 
 function Homepage() {
+
+    const classes = useStyles();
+
     return (
-        <React.Fragment>
-            <CssBaseline />
-            <Container maxWidth="sm">
+            <Container maxWidth="sm" className={classes.background}>
                 <FitMoodji />
+                <NavBar />
             </Container>
-        </React.Fragment>
     );
 }
 export default Homepage;
