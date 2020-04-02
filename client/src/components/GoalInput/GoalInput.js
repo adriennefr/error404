@@ -21,64 +21,69 @@ const useStyles = makeStyles((theme) => ({
 
 export default function TextFieldSizes() {
     const classes = useStyles();
-    const [goals, setGoals] = useState([])
 
-    useEffect(()=>{
-        API.getGoals().then(res=>console.log(res))
-    },[])
+    const goalsData = ["", "", "", "", ""]
+    const [goals, setGoals] = useState(goalsData)
 
-    const handleChange=(item)=>{
+    useEffect(() => {
+        API.getGoals().then(res => console.log(res))
+    }, [])
+
+    // const handleFirstChange = () => {
+
+    // }
+
+    const handleChange = (item) => {
         let key = item.getAttribute('name');
         let temp = goals;
-        temp.splice(key, 1 , item.value);
+        temp.splice(key, 1, item.value);
         console.log(temp)
         setGoals(temp)
     }
 
+    const handleSave = (goalsArr) => {
+        API.setGoals(goalsArr).then(res => console.log(res))
+    };
+
     return (
         <div className="goalInput">
-            <Grid container>
-                <Grid item xs={12}>
-                    <>
-                        <TextField
-                            label="Goal"
-                            id="filled-size-small"
-                            defaultValue="#1"
-                            variant="filled"
-                            size="small"
-                        />
-                        <Button
-                            variant="contained"
-                            color="primary"
-                            size="small"
-                            className={classes.button}
-                            startIcon={<SaveIcon />}
-                        />
-                    </>
-                </Grid>
+            <Grid container spacing={1}>
+
+                {/* <TextField
+                    label="Goal"
+                    // id="filled-size-small"
+                    
+                    defaultValue=""
+                    variant="filled"
+                    // name={i}
+                    onChange={(e) => handleFirstChange(e.target)}
+                    size="small"
+                /> */}
 
                 {goals.map((goal, i) =>
                     <>
                         <Grid item xs={12}>
                             <TextField
-                                label="Goal"
-                                id="filled-size-small"
+                                label="Exercise"
+                                // id="filled-size-small"
                                 defaultValue={goal}
                                 variant="filled"
                                 name={i}
                                 onChange={(e) => handleChange(e.target)}
                                 size="small"
                             />
-                            <Button
-                                variant="contained"
-                                color="primary"
-                                size="small"
-                                className={classes.button}
-                                startIcon={<SaveIcon />}
-                            />
                         </Grid>
                     </>
-                    )}
+                )}
+
+                <Button
+                    variant="contained"
+                    color="primary"
+                    size="small"
+                    className={classes.button}
+                    startIcon={<SaveIcon />}
+                    onClick={handleSave}
+                > Save </Button>
             </Grid>
         </div>
 

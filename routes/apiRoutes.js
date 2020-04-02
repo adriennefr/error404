@@ -57,9 +57,10 @@ let authentication = require("./authentication")
         });
        });
 
-    router.get('/api/goals', (req,res)=>{
-        res.json(JSON.stringify({data:['get ripped', 'drink protein', 'something something']}))
-        })
+    // router.get('/api/goals', (req,res)=>{
+    //     res.json(JSON.stringify({data:['get ripped', 'drink protein', 'something something']}))
+    //     })
+    
 //this needs to update user "challenge of the day" everytime that button is pressed
       // router.put("")
 
