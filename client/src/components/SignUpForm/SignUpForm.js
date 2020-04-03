@@ -72,8 +72,8 @@ export default function SignUp() {
 
   const signUp = () => {
     console.log('signingup...')
-    API.signUp(form).then(res => console.log(res))
-  }
+    API.signUp(form).then(res => window.location = "/")
+  };
 
   return (
     <>

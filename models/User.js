@@ -26,7 +26,7 @@ const FitmoodjiUser = new Schema({
     avatar: {
         type: String,
         trim: true,
-        required: "Choose your avatar."
+        required: "didnt make your avatar."
     },
     ownWorkout: [{
         time: {
