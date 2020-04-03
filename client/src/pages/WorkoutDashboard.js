@@ -11,7 +11,7 @@ import WorkoutFitmoodji from '../components/WorkoutFitmoodji/WorkoutFitmoodji'
 const useStyles = makeStyles((theme) => ({
     background: {
         backgroundColor: "#B8C0DB",
-        height: "130vh"
+        height: "100vh"
     },
 }));
 
