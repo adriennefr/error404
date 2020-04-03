@@ -14,6 +14,7 @@ import FemaleSignUp from '../FemaleAvatar/FemaleSignUp';
 import MaleSignUp from '../MaleAvatar/MaleSignUp';
 import NonbinarySignUp from '../NonbinaryAvatar/NonbinarySignUp';
 import './SignUpForm.css'
+import { Redirect } from "react-router-dom";
 
 
 
@@ -69,6 +70,7 @@ export default function SignUp() {
   const [genderBool, setGenderBool] = useState({
     female: true
   })
+  const [redirectLogin, setredirectLogin] = useState(false)
 
 
   const handleChange = e => {
@@ -78,10 +80,18 @@ export default function SignUp() {
 
   const signUp = () => {
     console.log('signingup...')
-    API.signUp(form).then(res => console.log(res))
-  }
+    const signUpData = {
+      ...form,
+      gender: genderBool
 
-  return (
+    }
+
+    API.signUp(signUpData).then(res => {
+      setredirectLogin(true)
+    })
+  };
+
+  return redirectLogin ? < Redirect to='/' /> : (
     <>
 
       <div>
@@ -90,6 +100,7 @@ export default function SignUp() {
         </Avatar> */}
         <Typography component="h1" variant="h5">
           New User?
+
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container className={classes.gridContainer} spacing={2}>
