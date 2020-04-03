@@ -1,5 +1,6 @@
 let mongoose = require("mongoose");
 let dbWO = require("../models/workout");
+console.log(dbWO);
 
 mongoose.connect("mongodb://localhost/workout", {
     useNewUrlParser: true,
@@ -46,10 +47,10 @@ let workoutSeed = [
     }
 ];
 
-dbWO.Challenge.deleteMany({})
-    .then(() => dbWO.Challenge.collection.insertMany(workoutSeed))
+dbWO.deleteMany({})
+    .then(() => dbWO.insertMany(workoutSeed))
     .then(data => {
-        console.log(data.result.n + " records inserted!");
+        console.log(data.length + " records inserted!");
         process.exit(0);
     })
     .catch(err => {
