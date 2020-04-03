@@ -3,9 +3,10 @@ import nonbinary from '../../assets/images/nonbinary.jpg'
 import './style.css'
 
 
-function NonbinarySignUp() {
+function NonbinarySignUp({ selected, onClick }) {
     return (
-        <img alt="nonbinary avatar" className="nonbinarySignUp" src={nonbinary} />
+        selected ? <img alt="nonbinary avatar" className="nonbinarySignUp selected" src={nonbinary} />
+            : <img onClick={() => onClick()} alt="nonbinary avatar" className="nonbinarySignUp" src={nonbinary} />
     )
 }
 

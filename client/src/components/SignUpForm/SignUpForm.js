@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 // import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 // import CssBaseline from '@material-ui/core/CssBaseline';
@@ -60,10 +60,19 @@ export default function SignUp() {
     email: '',
     password: ''
   });
+  const [genderBool, setGenderBool] = useState({
+    female: true
+  })
 
-  const signUp =()=>{
+
+  const handleChange = e => {
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value })
+  }
+
+  const signUp = () => {
     console.log('signingup...')
-    API.signUp(form).then(res=>console.log(res))
+    API.signUp(form).then(res => console.log(res))
   }
 
   return (
@@ -87,7 +96,7 @@ export default function SignUp() {
                 id="firstName"
                 label="First Name"
                 autoFocus
-                onChange={(e)=> setForm({...form, firstName:e.target.value})}
+                onChange={e => handleChange(e)}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -98,7 +107,7 @@ export default function SignUp() {
                 id="lastName"
                 label="Last Name"
                 name="lastName"
-                onChange={(e)=> setForm({...form, lastName:e.target.value})}
+                onChange={e => handleChange(e)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -109,7 +118,7 @@ export default function SignUp() {
                 id="email"
                 label="Email Address"
                 name="email"
-                onChange={(e)=> setForm({...form, email:e.target.value})}
+                onChange={e => handleChange(e)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -121,16 +130,16 @@ export default function SignUp() {
                 label="Password"
                 type="password"
                 id="password"
-                onChange={(e)=> setForm({...form, password:e.target.value})}
+                onChange={e => handleChange(e)}
               />
             </Grid>
             <div>
               <p>Choose your avatar:</p>
             </div>
             <div className="chooseAvatar">
-              <FemaleSignUp label="female"/>
-              <NonbinarySignUp label="nonbinary" />
-              <MaleSignUp label="male" />
+              <FemaleSignUp onClick={() => { setGenderBool({ female: true }) }} label="female" selected={genderBool.female} />
+              <NonbinarySignUp onClick={() => { setGenderBool({ non: true }) }} label="nonbinary" selected={genderBool.non} />
+              <MaleSignUp onClick={() => { setGenderBool({ male: true }) }} label="male" selected={genderBool.male} />
             </div>
           </Grid>
           <Button
@@ -139,13 +148,13 @@ export default function SignUp() {
             color="#ef8354"
             id="signUpBtn"
             className={classes.submit}
-            onClick={()=>signUp()}
+            onClick={() => signUp()}
           >
             Sign Up
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="/" variant="body2">
+              <Link to="/" variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>

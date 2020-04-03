@@ -29,6 +29,10 @@ const FitmoodjiUser = new Schema({
         required: "Choose your avatar."
     },
     ownWorkout: [{
+        time: {
+            type: String,
+            default: "0"
+        },
         day: {
             type: Date,
             default: Date.now
