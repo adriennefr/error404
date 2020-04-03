@@ -78,7 +78,11 @@ export default function SignUp() {
 
   const signUp = () => {
     console.log('signingup...')
-    API.signUp(form).then(res => console.log(res))
+    const signUpData = {
+      ...form,
+      gender: genderBool
+    }
+    API.signUp(signUpData).then(res => console.log(res))
   }
 
   return (
