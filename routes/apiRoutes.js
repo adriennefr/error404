@@ -2,6 +2,7 @@ const db = require('../models')
 const express = require('express');
 const router = express.Router();
 let authentication = require("./authentication")
+// console.log(db.Workout);
 
 // router.route('/signup') 
 // // req.body is the information coming from the front-end. Usually it's an object.
@@ -69,8 +70,10 @@ router.post('/login', (req, res) => {
 
 //get a random workout
 
-router.get('/api/workout/random', (req, res) => {
-    db.Workout.find().then(data => {
+router.get('/workout/random', (req, res) => {
+    console.log(db.Workout)
+    db.Workout.find({}).then(data => {
+        console.log(data)
         let rand = Math.floor(Math.random() * data.length)
         res.json(data[rand])
     })
