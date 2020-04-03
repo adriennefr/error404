@@ -58,7 +58,7 @@ router.post('/login', (req, res) => {
 
 //get a random workout
 
-router.get('/api/workout/random', (req, res) => {
+router.get('/workout/random', (req, res) => {
     db.Workout.find().then(data => {
         let rand = Math.floor(Math.random() * data.length)
         res.json(data[rand])

@@ -6,11 +6,12 @@ import NavBar from '../components/NavBar/NavBar'
 import { makeStyles } from '@material-ui/core/styles';
 import WOD from '../components/WOD/WOD'
 import Logo from '../components/Logo/Logo'
+import WorkoutFitmoodji from '../components/WorkoutFitmoodji/WorkoutFitmoodji'
 
 const useStyles = makeStyles((theme) => ({
     background: {
         backgroundColor: "#B8C0DB",
-        height: "100vh"
+        height: "130vh"
     },
 }));
 
@@ -23,6 +24,8 @@ function WorkoutDashboard() {
                 <Logo />
                 <WOD />
                 <WorkoutButtons />
+                <br></br>
+                <WorkoutFitmoodji />
                 <NavBar />
             </Container>
     );

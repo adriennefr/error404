@@ -16,7 +16,7 @@ function App() {
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/signup" component={SignUpPage} />
         <Route exact path="/homepage" component={Homepage} />
-        <Route exact path="/wokoutdashboard" component={WorkoutDashboard} />
+        <Route exact path="/workoutdashboard" component={WorkoutDashboard} />
         <Route exact path="/doyourown" component={DoYourOwn} />
         <Route exact path="/challenge" component={ChallengePage} />
       </Switch>

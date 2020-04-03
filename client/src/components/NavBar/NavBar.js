@@ -46,7 +46,7 @@ export default function BottomAppBar() {
                                 <BarChartIcon className={classes.buttonColor}/>
                             </IconButton>
 
-                            <Link to='/wokoutdashboard'>
+                            <Link to='/workoutdashboard'>
                                 <IconButton size="medium" color="inherit">
                                     <FitnessCenterIcon className={classes.buttonColor}/>
                                 </IconButton>
