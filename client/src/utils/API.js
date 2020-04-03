@@ -5,6 +5,7 @@ export default {
     signIn: (obj) => axios.post('/api/signin', obj),
     setGoals: (arr) => axios.post('/api/goals', arr),
     getGoals: () => axios.get('/api/goals'),
-    renderAvatar: () => axios.get('/api/users')
+    getFitmoodji: () => axios.get('/api/users'),
+    getWod: () => axios.get('/api/workout/random'),
 }
 
