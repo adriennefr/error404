@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import video from '../../assets/moods/Female/3.mov'
+import video from '../../assets/moods/Female/3.mp4'
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -47,6 +47,8 @@ export default function ImgMediaCard() {
           height="140"
           src={video}
           title="Fitmoodji Mood"
+          autoPlay={true}
+          loop={true}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2" align="center">
