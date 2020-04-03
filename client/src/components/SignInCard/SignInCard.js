@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import SignIn from '../SignIn/SignIn'
+import LandingLogo from '../LandingLogo/LandingLogo'
 import './SignInCard.css'
 
 const useStyles = makeStyles({
@@ -28,7 +29,7 @@ export default function SignInCard() {
   return (
 
     <React.Fragment>
-      <h1 id="logo">Logo Here</h1>
+      <LandingLogo />
       <Card className={classes.root} id="signInCard" variant="outlined">
         <CardContent>
           <SignIn />
