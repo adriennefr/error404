@@ -30,25 +30,24 @@ export default function ImgMediaCard() {
 
     useEffect(() => {
         API.getWod().then((res) => {
-            setWodState({ WOD: res })
+            setWodState({ WOD: res.data.exercises })
+
         });
     }, []);
 
+
+
+    // const workoutComp = data.map(wo => (<p>{wo}</p>))
+
+    // const workoutContext = React.createContext(workoutComp)
     return (
         <Card className={classes.root}>
             <CardActionArea>
                 <CardContent>
-                    <CardMedia
-                        component="img"
-                        alt="WOD Rendered"
-                        height="140"
-                        src=""
-                        image=""
-                        title="WOD"
-                    />
+                    {WodState.WOD.map(item => <p>{item}</p>)}
                     <Typography gutterBottom variant="h5" component="h2" align="center">
                         WOD
-          </Typography>
+                    </Typography>
                 </CardContent>
             </CardActionArea>
         </Card>
