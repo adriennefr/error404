@@ -79,7 +79,8 @@ router.get('/workout/random', (req, res) => {
     })
 })
 
-// router.get('/api/goals', (req,res)=>{
+//get goals for doyourown page
+// router.get('/goals', (req,res)=>{
 //     res.json()
 //     })
 
