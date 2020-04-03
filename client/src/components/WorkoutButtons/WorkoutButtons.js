@@ -4,19 +4,20 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom'
+import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles((theme) => ({
-    grid: {
-        position: 'absolute',
-        left: '50%',
-        top: '50%',
-        transform: 'translate(-50%, -50%)',
+    container: {
         display: "flex",
-        direction: "row"
+        justifyContent: "center",
+        marginTop: "5px"
     },
     margin: {
         margin: theme.spacing(1),
     },
+    buttonText: {
+        fontSize: '12px'
+    }
 }
 ));
 
@@ -24,19 +25,26 @@ export default function OutlinedButtons() {
     const classes = useStyles();
 
     return (
-        <Grid className={classes.grid} alignContent="center">
-            <Link to='/challenge'>
-                <Button variant="outlined" size="small" color="primary" className={classes.margin}>
-                    <Typography variant="caption">
+        <>
+        <Container className={classes.container}>
+            <Grid>
+                <Link to='/challenge'>
+                    <Button variant="outlined" size="small" color="primary" className={classes.margin, classes.buttonText}>
                         Challenge
-                    </Typography>
+                    </Button>
+                </Link>
+            </Grid>
+        </Container>
+
+        <Container className={classes.container}>
+            <Grid>
+                <Link to='/doyourown'>
+                    <Button variant="outlined" size="small" color="primary" className={classes.margin, classes.buttonText}>
+                        Do Your Own
                 </Button>
-            </Link>
-            <Link to='/doyourown'>
-                <Button variant="outlined" size="small" color="primary" className={classes.margin}>
-                    Do Your Own
-                </Button>
-            </Link>
-        </Grid>
+                </Link>
+            </Grid>
+        </Container>
+        </>
     )
 };
