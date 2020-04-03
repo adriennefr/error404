@@ -10,9 +10,18 @@ let authentication = require("./authentication")
 //this is a sign up route and to create a new user...
 router.post("/signup", async function (req, res) {
     //console.log(req.body);
-    const { firstName, lastName, email, password } = req.body;
+    const { firstName, lastName, email, password, gender } = req.body;
     console.log('signing up...')
     console.log(req.body)
+    let avatar;
+    if (gender.female) {
+        avatar = "female"
+    } else if (gender.non) {
+        avatar = "non-binary"
+    } else if (gender.male) {
+        avatar = "male";
+    }
+
     let hashedPassword = await authentication.create(password);
 
     // Decrypt pasword function
@@ -21,11 +30,13 @@ router.post("/signup", async function (req, res) {
         firstName: firstName,
         lastName: lastName,
         password: hashedPassword,
-        email: email
+        email: email,
+        avatar: avatar
     }).then(function (user) {
         res.json(`User ${user.firstName} ${user.lastName} created with ${user.email}`);
     }).catch(function (err) {
         console.log(err);
+        res.json(err);
     });
 });
 

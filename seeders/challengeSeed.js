@@ -10,88 +10,39 @@ mongoose.connect("mongodb://localhost/workout", {
 
 let workoutSeed = [
     {
-        target: "Lower body",
-        exercises: "Deadlifts"
+        exercises: ["Deadlifts (3 sets, 10 reps)",
+        "Push-ups (3 sets, 10 reps)",
+        "Burpees (3 sets, 10 reps)",
+        "Crunches (2 sets, 25 reps)"
+        ]
     },
     {
-        target: "Lower body",
-        exercises: "Squat Jumps"
+        exercises: ["Squat Jumps (3 sets, 15 reps)",
+        "Pull-ups (3 sets, 8 reps)",
+        "Squat Jumps (3 sets, 12 reps)",
+        "Sit-ups (3 sets, 12 reps)"
+        ]
     },
     {
-        target: "Lower body",
-        exercises: "Reverse Lunge"
+        exercises: ["Reverse Lunge (3 sets, 10 reps per side)",
+        "Bent-over Rows (3 sets, 10 reps)",
+        "Tuck Jumps (3 sets, 8 reps)",
+        "Mountain Climbers (3 sets, 15 reps per side)"
+        ]
     },
     {
-        target: "Lower body",
-        exercises: "Squats"
+        exercises: ["Squat (3 sets, 15 reps)",
+        "Shoulder Press (3 sets, 10 reps)",
+        "Jumping Jacks (3 sets, 25 reps)",
+        "Bicycle Crunches (3 sets, 12 reps per side)"
+        ]
     },
     {
-        target: "Lower body",
-        exercises: "Side Lunge"
-    },
-    {
-        target: "Upper body",
-        exercises: "Push-ups"
-    },
-    {
-        target: "Upper body",
-        exercises: "Pull-ups"
-    },
-    {
-        target: "Upper body",
-        exercises: "Bent-over Rows"
-    },
-    {
-        target: "Upper body",
-        exercises: "Shoulder Press"
-    },
-    {
-        target: "Upper body",
-        exercises: "Chest Press"
-    },
-    {
-        target: "Full body",
-        exercises: "Burpees"
-    },
-    {
-        target: "Full body",
-        exercises: "Squat Jumps"
-    },
-    {
-        target: "Full body",
-        exercises: "Tuck Jumps"
-    },
-    {
-        target: "Full body",
-        exercises: "Jumping Jacks"
-    },
-    {
-        target: "Full body",
-        exercises: "High Knees"
-    },
-    {
-        target: "Full body",
-        exercises: "Burpees"
-    },
-    {
-        target: "Core",
-        exercises: "Crunches"
-    },
-    {
-        target: "Core",
-        exercises: "Sit-ups"
-    },
-    {
-        target: "Core",
-        exercises: "Mountain Climbers"
-    },
-    {
-        target: "Core",
-        exercises: "Bicyle Crunches"
-    },
-    {
-        target: "Core",
-        exercises: "Leg Raise"
+        exercises: ["Side Lunge (3 sets, 10 reps per side)",
+        "Chest Press (3 sets, 10 reps)",
+        "High Knees (3 sets, 15 reps per leg)",
+        "Leg Raise (3 sets, 12 reps)"
+        ]
     }
 ];
 

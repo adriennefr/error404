@@ -9,12 +9,11 @@ import Grid from '@material-ui/core/Grid';
 // import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-
 import API from '../../utils/API'
-
 import FemaleSignUp from '../FemaleAvatar/FemaleSignUp';
 import MaleSignUp from '../MaleAvatar/MaleSignUp';
 import NonbinarySignUp from '../NonbinaryAvatar/NonbinarySignUp';
+import './SignUpForm.css'
 
 
 
@@ -49,7 +48,14 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+    backgroundColor: "#85FFCE",
+    color: "white",
+    fontSize: 15,
   },
+  gridContainer: {
+    display: "flex",
+    justifyContent: "center",
+  }
 }));
 
 export default function SignUp() {
@@ -72,8 +78,12 @@ export default function SignUp() {
 
   const signUp = () => {
     console.log('signingup...')
-    API.signUp(form).then(res => window.location = "/")
-  };
+    const signUpData = {
+      ...form,
+      gender: genderBool
+    }
+    API.signUp(signUpData).then(res => console.log(res))
+  }
 
   return (
     <>
@@ -83,10 +93,10 @@ export default function SignUp() {
 
         </Avatar> */}
         <Typography component="h1" variant="h5">
-          Sign up
+          New User?
         </Typography>
         <form className={classes.form} noValidate>
-          <Grid container spacing={2}>
+          <Grid container className={classes.gridContainer} spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
                 name="firstName"
