@@ -47,6 +47,8 @@ export default function ImgMediaCard() {
           height="140"
           src={video}
           title="Fitmoodji Mood"
+          autoPlay={true}
+          loop={true}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2" align="center">
