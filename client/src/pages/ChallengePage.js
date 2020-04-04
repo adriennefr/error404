@@ -7,6 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Logo from '../components/Logo/Logo'
+import WOD from '../components/WOD/WOD'
 
 const useStyles = makeStyles((theme) => ({
     background: {
@@ -27,7 +28,7 @@ function ChallengePage() {
                 <br />
                 <FinishBtn href="/homepage" />
                 <br />
-                <ChallengeCard />
+                <WOD />
                 <NavBar />
         
         </Container>
