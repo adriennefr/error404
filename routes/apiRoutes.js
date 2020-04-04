@@ -74,8 +74,8 @@ router.get('/workout/random', (req, res) => {
     console.log(db.Workout)
     db.Workout.find({}).then(data => {
         console.log(data)
-        let rand = Math.floor(Math.random() * data.length)
-        res.json(data[rand])
+        // let rand = Math.floor(Math.random() * data.length)
+        res.json(data)
     })
 })
 
