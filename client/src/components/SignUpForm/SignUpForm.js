@@ -65,7 +65,8 @@ export default function SignUp() {
     firstName: '',
     lastName: '',
     email: '',
-    password: ''
+    password: '',
+    gender: 'female'
   });
   const [genderBool, setGenderBool] = useState({
     female: true
@@ -81,9 +82,7 @@ export default function SignUp() {
   const signUp = () => {
     console.log('signingup...')
     const signUpData = {
-      ...form,
-      gender: genderBool
-
+      ...form
     }
 
     API.signUp(signUpData).then(res => {
@@ -154,9 +153,9 @@ export default function SignUp() {
               <p>Choose your avatar:</p>
             </div>
             <div className="chooseAvatar">
-              <FemaleSignUp onClick={() => { setGenderBool({ female: true }) }} label="female" selected={genderBool.female} />
-              <NonbinarySignUp onClick={() => { setGenderBool({ non: true }) }} label="nonbinary" selected={genderBool.non} />
-              <MaleSignUp onClick={() => { setGenderBool({ male: true }) }} label="male" selected={genderBool.male} />
+              <FemaleSignUp onClick={() => { setForm({ ...form, ['gender']: 'female' }) }} label="female" selected={form.gender === 'female'} />
+              <NonbinarySignUp onClick={() => { setForm({ ...form, ['gender']: 'non' }) }} label="nonbinary" selected={form.gender === 'nonbinary'} />
+              <MaleSignUp onClick={() => { setForm({ ...form, ['gender']: 'male' }) }} label="male" selected={form.gender === 'male'} />
             </div>
           </Grid>
           <Button
