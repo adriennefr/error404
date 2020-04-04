@@ -18,7 +18,7 @@ const GreenCheckbox = withStyles({
 
 
 
-function ChallengeItem() {
+function ChallengeItem({text}) {
   const [state, setState] = useState({
     checkedG: false,
   });
@@ -32,7 +32,7 @@ function ChallengeItem() {
 
       <FormControlLabel
         control={<GreenCheckbox checked={state.checkedG} onChange={handleChange} name="checkedG" />}
-        label="Challenge item" 
+        label={text}
       />
 
     </FormGroup>
