@@ -58,7 +58,7 @@ export default function SignIn() {
     password: ''
   })
 
-  const { setUser } = useAuth();
+  const { setCurrentUser } = useAuth();
 
   const [error, setError] = useState(false);
   let history = useHistory();
@@ -75,7 +75,8 @@ export default function SignIn() {
     API.signIn(form).then(res => {
       if( res.data.success ) {
         // Redirect..
-        setUser( res.data.user )
+        console.log(res.data.user)
+        setCurrentUser( res.data.user )
         history.push('/homepage')
       } else {
         console.log('error', res.data.msg)

@@ -1,7 +1,8 @@
 const db = require('../models')
 const express = require('express');
 const router = express.Router();
-let authentication = require("./authentication")
+let authentication = require("./authentication");
+const moment = require('moment');
 // console.log(db.Workout);
 
 // router.route('/signup')
@@ -17,12 +18,16 @@ router.post("/signup", async function (req, res) {
 
     // Decrypt pasword function
     // after done, then use new variable in password
-    db.User.create({
+    db.User.find({email:email}).then(response=>{
+        response.length ? res.json({success: false, msg: 'User already exists with that email'}) :
+        //else run sign up
+        db.User.create({
         firstName: firstName,
         lastName: lastName,
         password: hashedPassword,
         email: email,
-        gender: gender
+        gender: gender,
+        currentMood: 3
     }).then(function (result) {
         res.json({ success: true, user: {
                 email: result.email,
@@ -37,6 +42,7 @@ router.post("/signup", async function (req, res) {
         console.log(err);
         res.json({ success: false, msg: 'Something went wrong try again later.' });
     });
+    })
 });
 
 //Login Route, Verify User
@@ -48,18 +54,25 @@ router.post('/signin', (req, res) => {
         if (result) {
             authentication.verify(req.body.password, function (hash) {
                 if (result.password === hash.hash) {
+                    console.log(result.completedWorkouts)
+                    let recentWorkouts = 1
+                    result.completedWorkouts.map(a=>{
+                         const now = moment(new Date());
+                        const duration = moment.duration(now.diff(moment(a.day))).asHours()
+                        duration < 168 ? recentWorkouts ++ : ''
+                    })
+                   
+                    
+
+                    const mood = recentWorkouts > 3 ? 5 : recentWorkouts;
                     res.json( {success: true, user: {
-                            email: result.email,
-                            firstName: result.firstName,
-                            lastName: result.lastName,
-                            gender: result.gender,
-                            currentMood: result.currentMood,
-                            workouts: result.workouts,
-                            completedWorkouts: result.completedWorkouts
-                        }} );
+                            ...result._doc,
+                            currentMood: mood,
+                        }});
 
                     //
                 } else {
+                    console.log('user pw incorrect')
                     res.json({ success: false, msg: 'Incorrect password'});
                 }
             })
@@ -72,68 +85,23 @@ router.post('/signin', (req, res) => {
     });
 });
 
-router.put('/user/update', async (req, res) => {
-    let userEmail = req.body.email;
+router.put('/user/update/:id', (req, res) => {
     let time = req.body.time;
     let exercises = req.body.exercises;
-
-    try {
-        let user = await db.User.findOne({
-            email: userEmail
-        })
-
-        let date = new Date()
-
-        let completedWorkout = {
-            time: time,
-            day: date,
-            exercises: exercises
-        }
-
-        // Promote users mood
-        if( user.currentMood < 5 ) {
-            user.currentMood = user.currentMood + 1
-        }
-
-        user.completedWorkouts.push( completedWorkout );
-
-        await user.save();
-
-        res.json( {success: true, user: {
-                email: user.email,
-                firstName: user.firstName,
-                lastName: user.lastName,
-                gender: user.gender,
-                currentMood: user.currentMood,
-                workouts: user.workouts,
-                completedWorkouts: user.completedWorkouts
-            }})
-    } catch (e) {
-        res.json( {success: false})
-    }
+    db.User.findByIdAndUpdate(req.params.id,{$push:{completedWorkouts:{exercises: exercises, time: time, day:moment(new Date())}}})
+    .then(data=> res.json({success:true, ...data}))
 
 })
 
 //send gender to front-end
-router.get('/gender/:id', (req, res) => {
-    // let gender = req.params.gender;
-    let id = req.params.id;
-    // console.log(req.params.gender);
-    console.log(req.params.id);
-    db.User.findOne({
-        _id: id,
-    }).then(data => {
-        console.log(data.gender)
-        res.json(data.gender)
-    })
-})
 
 //get a random workout
 
 router.get('/workout/random', (req, res) => {
     db.Workout.find({}).then(data => {
-        let rand = Math.floor(Math.random() * data.length)
-        res.json(data[rand])
+        console.log(data)
+        // let rand = Math.floor(Math.random() * data.length)
+        res.json(data)
     })
 })
 

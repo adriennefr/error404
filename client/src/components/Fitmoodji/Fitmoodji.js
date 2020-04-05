@@ -36,6 +36,10 @@ const useStyles = makeStyles((theme) => ({
 export default function ImgMediaCard() {
   const classes = useStyles();
 
+  const [fitmoodjiState, setFitmoodjiState] = useState({
+    fitmoodji: '',
+  });
+  
   const { user } = useAuth();
 
   return (

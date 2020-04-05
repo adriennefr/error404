@@ -6,7 +6,8 @@ import NavBar from '../components/NavBar/NavBar'
 import { makeStyles } from '@material-ui/core/styles';
 import WOD from '../components/WOD/WOD'
 import Logo from '../components/Logo/Logo'
-import WorkoutFitmoodji from '../components/WorkoutFitmoodji/WorkoutFitmoodji'
+import WorkoutFitmoodji from '../components/WorkoutFitmoodji/WorkoutFitmoodji';
+import {useAuth} from '../utils/store'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -19,7 +20,9 @@ const useStyles = makeStyles((theme) => ({
 
 function WorkoutDashboard() {
 
+    const {user} = useAuth()
     const classes = useStyles();
+    console.log(user)
 
     return (
             <Container maxWidth="lg" className={classes.root}>

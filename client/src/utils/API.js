@@ -7,7 +7,8 @@ export default {
     getGoals: () => axios.get('/api/goals'),
     getFitmoodji: () => axios.get('/api/users'),
     getWod: () => axios.get('/api/workout/random'),
-    updateUser: (data) => axios.put('/api/user/update', data)
+    getGender: () => axios.get('/api/gender/:id'),   
+    updateUser: (data, id) => axios.put(`/api/user/update/${id}`, data)
 }
 
 

@@ -71,7 +71,7 @@ export default function SignUp() {
   const [error, setError] = useState(false);
   let history = useHistory();
 
-  const { setUser } = useAuth();
+  const { setCurrentUser } = useAuth();
 
 
   const handleChange = e => {
@@ -86,7 +86,7 @@ export default function SignUp() {
 
     API.signUp(signUpData).then(res => {
       if( res.data.success ) {
-        setUser( res.data.user )
+        setCurrentUser( res.data.user )
         history.push('/homepage');
       } else {
         setError( res.data.msg );

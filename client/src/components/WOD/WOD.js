@@ -32,7 +32,7 @@ export default function ImgMediaCard() {
         <Card className={classes.root}>
             <CardActionArea>
                 <CardContent>
-                    {wod.map(item => <p>{item}</p>)}
+                    {wod.map((item,i) => <p key={i}>{item}</p>)}
                     <Typography gutterBottom variant="h5" component="h2" align="center">
                         WOD
                     </Typography>
