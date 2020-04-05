@@ -24,8 +24,8 @@ function FinishBtn({ onClick }) {
             <Button
             variant="outlined"
             className={`${classes.button} ${classes.finishBtn}`}
-            onClick={() => onClick()}
-            >Finish Workout
+            onClick={() => {console.log('clicked');onClick()}}>
+                Finish Workout
             </Button>
         </div>
     );

@@ -40,19 +40,6 @@ export default function ImgMediaCard() {
     fitmoodji: '',
   });
   
-  useEffect(() => {
-    // For demonstration purposes, we mock an API call.
-    API.getGender().then((res) => {
-      console.log(res)
-      setFitmoodjiState(() => {
-        // if (male && logged in yesterday) {
-        //   display happy mood
-        // } else if (male && logged in 3 days ago ){
-        //   display content mood
-        // }
-      })
-    }); 
-  }, []);
   const { user } = useAuth();
 
   return (

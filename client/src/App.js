@@ -13,7 +13,7 @@ import {WODContext, useAuth, AuthContext} from './utils/store';
 function PrivateRoute({ children, ...rest }) {
   const { user } = useAuth();
 
-  console.log( 'private route', user, rest, children )
+  console.log( 'private route', user, children )
 
   return (
     <>
@@ -33,24 +33,22 @@ function App() {
   });
 
   // Check if user is logged in... VERY UNSAFE
-  const existingUser = JSON.parse(localStorage.getItem("user"));
-  const [currentUser, setCurrentUser] = useState(existingUser);
+ // const existingUser = JSON.parse(localStorage.getItem("user"));
+  const [currentUser, setCurrentUser] = useState(null);
 
-  const setUser = (user) => {
-    if( user ) {
-      localStorage.setItem("user", JSON.stringify(user));
-    } else {
-      localStorage.removeItem('user');
-    }
-    setCurrentUser(user);
-  }
+  // const setUser = (user) => {
+  //   if( currentUser ) {
+  //     localStorage.setItem("user", JSON.stringify(currentUser));
+  //   } else {
+  //     localStorage.removeItem('user');
+  //   }
+  //   setCurrentUser(user);
+  // }
+  
 
   const signOut = () => {
-    setUser();
-  }
-
-  const changeWod =()=>{
-    setWodState({WOD: ['filler', 'filler', 'filler', 'filler']})
+    setCurrentUser(null);
+    window.location.replace("/")
   }
 
   useEffect(async () => {
@@ -60,16 +58,18 @@ function App() {
     }else{
       API.getWod().then((res) => {
         if( res.data ) {
-          localStorage.setItem('exercises', JSON.stringify(res.data.exercises))
-          setWodState({ WOD: res.data.exercises })
+          console.log(res.data)
+          let rand = Math.floor(Math.random()*res.data.length)
+          localStorage.setItem('exercises', JSON.stringify(res.data[rand].exercises))
+          setWodState({ WOD: res.data[rand].exercises })
         }
       });
     }
   }, [])
 
   return (
-    <WODContext.Provider value={{wod: WodState.WOD, doSomething: changeWod}}>
-      <AuthContext.Provider value={{user: currentUser, setUser: setUser, signOut: signOut}}>
+    <WODContext.Provider value={{wod: WodState.WOD}}>
+      <AuthContext.Provider value={{user: currentUser, setCurrentUser: setCurrentUser, signOut: signOut}}>
         <Router>
           <Switch>
                 <Route exact path="/" component={LandingPage} />

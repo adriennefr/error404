@@ -26,23 +26,24 @@ function ChallengePage() {
     const classes = useStyles();
 
     const { wod } = useContext(WODContext)
-    const { user, setUser } = useAuth();
+    const { user, setCurrentUser} = useAuth();
     const history = useHistory()
-
+  console.log(user)
 
   const [ currentTime, setCurrentTime ] = useState(0)
 
     const handleFinish = () => {
+      console.log(user)
       // Update user with the workout they completed...
       API.updateUser({
-        email: user.email,
         time: currentTime,
         exercises: wod
-      }).then((res) => {
+      }, user._id).then((res) => {
         // Send user to homepage...
         if( res.data.success ){
-          setUser( res.data.user );
-          history.push('/')
+          console.log(res.data)
+          setCurrentUser( res.data._doc );
+          history.push('/homepage')
         }
       })
 
@@ -53,7 +54,7 @@ function ChallengePage() {
                 <Logo />
                 <StopwatchHooks onTimeChange={(time) => setCurrentTime(time)} />
                 <br />
-                <FinishBtn onClick={() => handleFinish()}/>
+                <FinishBtn onClick={handleFinish}/>
                 <br />
                 <WOD />
                 <NavBar />

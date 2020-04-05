@@ -26,7 +26,7 @@ function LandingPage() {
     }
 
     return(
-        <Container className={classes.background}>
+        <Container className={classes.background, classes.root}>
             <SignInCard />
         </Container>
     );
