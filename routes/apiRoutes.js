@@ -14,14 +14,14 @@ router.post("/signup", async function (req, res) {
     const { firstName, lastName, email, password, gender } = req.body;
     console.log('signing up...')
     console.log(req.body)
-    let avatar;
-    if (gender.female) {
-        avatar = "female"
-    } else if (gender.non) {
-        avatar = "non-binary"
-    } else if (gender.male) {
-        avatar = "male";
-    }
+    // let avatar;
+    // if (gender.female) {
+    //     avatar = "female"
+    // } else if (gender.non) {
+    //     avatar = "non-binary"
+    // } else if (gender.male) {
+    //     avatar = "male";
+    // }
 
     let hashedPassword = await authentication.create(password);
 
@@ -32,7 +32,7 @@ router.post("/signup", async function (req, res) {
         lastName: lastName,
         password: hashedPassword,
         email: email,
-        avatar: avatar
+        gender: gender
     }).then(function (user) {
         res.json(`User ${user.firstName} ${user.lastName} created with ${user.email}`);
     }).catch(function (err) {
@@ -67,6 +67,19 @@ router.post('/login', (req, res) => {
     });
 });
 
+//send gender to front-end
+router.get('/gender/:id', (req, res) => {
+    // let gender = req.params.gender;
+    let id = req.params.id;
+    // console.log(req.params.gender);
+    console.log(req.params.id);
+    db.User.findOne({
+        _id: id,
+    }).then(data => {
+        console.log(data.gender)
+        res.json(data.gender)
+    })
+})
 
 //get a random workout
 
@@ -74,8 +87,8 @@ router.get('/workout/random', (req, res) => {
     console.log(db.Workout)
     db.Workout.find({}).then(data => {
         console.log(data)
-        let rand = Math.floor(Math.random() * data.length)
-        res.json(data[rand])
+        // let rand = Math.floor(Math.random() * data.length)
+        // res.json(data[rand])
     })
 })
 

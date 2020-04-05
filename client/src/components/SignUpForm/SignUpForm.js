@@ -154,7 +154,7 @@ export default function SignUp() {
             </div>
             <div className="chooseAvatar">
               <FemaleSignUp onClick={() => { setForm({ ...form, ['gender']: 'female' }) }} label="female" selected={form.gender === 'female'} />
-              <NonbinarySignUp onClick={() => { setForm({ ...form, ['gender']: 'non' }) }} label="nonbinary" selected={form.gender === 'nonbinary'} />
+              <NonbinarySignUp onClick={() => { setForm({ ...form, ['gender']: 'non' }) }} label="nonbinary" selected={form.gender === 'non'} />
               <MaleSignUp onClick={() => { setForm({ ...form, ['gender']: 'male' }) }} label="male" selected={form.gender === 'male'} />
             </div>
           </Grid>
