@@ -2,3 +2,6 @@
 /client/node_modules
 .DS_Store
 .env
+# just for now while we are changing this more often
+package-lock.json
+/client/package-lock.json
