@@ -10,8 +10,10 @@ import BarChartIcon from '@material-ui/icons/BarChart';
 import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 import GroupIcon from '@material-ui/icons/Group';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 // import red from '@material-ui/core/colors/red';
 import { Link } from 'react-router-dom'
+import { useAuth } from "../../utils/store";
 
 // const theme = createMui(
 //     //theme
@@ -30,6 +32,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function BottomAppBar() {
     const classes = useStyles();
+
+    const { signOut } = useAuth();
 
     return (
         <React.Fragment>
@@ -57,6 +61,11 @@ export default function BottomAppBar() {
                             </IconButton>
                             <IconButton size="medium" color="inherit">
                                 <AccountBoxIcon className={classes.buttonColor}/>
+                            </IconButton>
+
+
+                            <IconButton size="medium" color="inherit" onClick={() => signOut()}>
+                                <ExitToAppIcon className={classes.buttonColor}/>
                             </IconButton>
                         </Box>
                     </Toolbar>

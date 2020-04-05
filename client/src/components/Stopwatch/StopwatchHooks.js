@@ -31,16 +31,23 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-function Stopwatch() {
+function Stopwatch({ onTimeChange }) {
     const classes = useStyles();
 
     const [timerOn, setTimerOn] = useState(false);
     const [timerStart, setTimerStart] = useState(0);
     const [timerTime, setTimerTime] = useState(0);
 
+    const handleTimeChange = (time) => {
+        setTimerTime(time);
+
+        // Send event up to parent component
+        onTimeChange( time )
+    }
+
     const startTimer = () => {
         setTimerOn(true);
-        setTimerTime(timerTime);
+        handleTimeChange(timerTime);
         setTimerStart(Date.now() - timerTime);
 
     };
@@ -51,14 +58,14 @@ function Stopwatch() {
 
     const resetTimer = () => {
         setTimerStart(0);
-        setTimerTime(0);
+        handleTimeChange(0);
     };
 
     useEffect(() => {
         let interval = null;
         if (timerOn) {
             interval = setInterval(() => {
-                setTimerTime(Date.now() - timerStart)
+                handleTimeChange(Date.now() - timerStart)
             }, 10);
         } else if (!timerOn) {
             clearInterval(interval)
@@ -80,7 +87,7 @@ function Stopwatch() {
                 </CardContent>
             </Card>
             {/* <div className="stopwatch"> */}
-                
+
                 {/* : {centiseconds} */}
             {/* </div> */}
 

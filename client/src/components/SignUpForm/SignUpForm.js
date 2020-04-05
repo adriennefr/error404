@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 // import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 // import Box from '@material-ui/core/Box';
 // import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
@@ -14,7 +13,9 @@ import FemaleSignUp from '../FemaleAvatar/FemaleSignUp';
 import MaleSignUp from '../MaleAvatar/MaleSignUp';
 import NonbinarySignUp from '../NonbinaryAvatar/NonbinarySignUp';
 import './SignUpForm.css'
-import { Redirect } from "react-router-dom";
+import {useHistory, Link} from "react-router-dom";
+import { Alert } from '@material-ui/lab';
+import {useAuth} from "../../utils/store";
 
 
 // function Copyright() {
@@ -66,10 +67,11 @@ export default function SignUp() {
     password: '',
     gender: 'female'
   });
-  const [genderBool, setGenderBool] = useState({
-    female: true
-  })
-  const [redirectLogin, setredirectLogin] = useState(false)
+
+  const [error, setError] = useState(false);
+  let history = useHistory();
+
+  const { setUser } = useAuth();
 
 
   const handleChange = e => {
@@ -78,17 +80,21 @@ export default function SignUp() {
   }
 
   const signUp = () => {
-    console.log('signingup...')
     const signUpData = {
       ...form
     }
 
     API.signUp(signUpData).then(res => {
-      setredirectLogin(true)
+      if( res.data.success ) {
+        setUser( res.data.user )
+        history.push('/homepage');
+      } else {
+        setError( res.data.msg );
+      }
     })
   };
 
-  return redirectLogin ? < Redirect to='/' /> : (
+  return  (
     <>
 
       <div>
@@ -150,12 +156,13 @@ export default function SignUp() {
             <div>
               <p>Choose your avatar:</p>
             </div>
-            <div className="chooseAvatar">
+            <div className="chooseAvatar" style={{marginBottom: '20px'}}>
               <FemaleSignUp onClick={() => { setForm({ ...form, ['gender']: 'female' }) }} label="female" selected={form.gender === 'female'} />
               <NonbinarySignUp onClick={() => { setForm({ ...form, ['gender']: 'non' }) }} label="nonbinary" selected={form.gender === 'non'} />
               <MaleSignUp onClick={() => { setForm({ ...form, ['gender']: 'male' }) }} label="male" selected={form.gender === 'male'} />
             </div>
           </Grid>
+          { error && <Alert severity={'error'}>{error}</Alert>}
           <Button
             fullWidth
             variant="contained"

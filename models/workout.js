@@ -9,6 +9,10 @@ const WorkoutChallenge = new Schema({
     }]
 });
 
+const UserWorkouts = new Schema({
+    userId: {}
+})
+
 const Challenge = mongoose.model('wochallenges', WorkoutChallenge);
 
-module.exports = Challenge; 
+module.exports = Challenge;

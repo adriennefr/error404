@@ -1,4 +1,5 @@
 const express = require('express');
+const session = require('express-session')
 const app = express();
 const path = require('path')
 const PORT = process.env.PORT || 3001;
@@ -8,6 +9,10 @@ const apiRoutes = require('./routes/apiRoutes');
 
 app.use(express.urlencoded({ extend: true }));
 app.use(express.json());
+
+app.use(session({
+    secret: 'keyboard cat'
+}));
 
 process.env.NODE_ENV === 'production' ? app.use(express.static('client/build')) : app.use(express.static('public'));
 

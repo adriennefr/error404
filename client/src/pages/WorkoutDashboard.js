@@ -9,9 +9,11 @@ import Logo from '../components/Logo/Logo'
 import WorkoutFitmoodji from '../components/WorkoutFitmoodji/WorkoutFitmoodji'
 
 const useStyles = makeStyles((theme) => ({
-    background: {
+    root: {
         backgroundColor: "#B8C0DB",
-        height: "100vh"
+        height: "100%",
+        minHeight: '100vh',
+        marginBottom: '64px'
     },
 }));
 
@@ -20,7 +22,7 @@ function WorkoutDashboard() {
     const classes = useStyles();
 
     return (
-            <Container maxWidth="sm" className={classes.background}>
+            <Container maxWidth="lg" className={classes.root}>
                 <Logo />
                 <WOD />
                 <WorkoutButtons />

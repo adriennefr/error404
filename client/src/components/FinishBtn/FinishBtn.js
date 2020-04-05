@@ -16,14 +16,15 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-function FinishBtn() {
+function FinishBtn({ onClick }) {
     const classes = useStyles();
 
     return (
         <div className="finishBtn-content">
-            <Button 
+            <Button
             variant="outlined"
             className={`${classes.button} ${classes.finishBtn}`}
+            onClick={() => onClick()}
             >Finish Workout
             </Button>
         </div>

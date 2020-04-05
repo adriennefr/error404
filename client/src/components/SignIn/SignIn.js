@@ -5,14 +5,16 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
+import { Alert } from '@material-ui/lab';
 // import Box from '@material-ui/core/Box';
 // import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import './SignIn.css';
 import API from '../../utils/API'
+import { useAuth } from "../../utils/store";
+import { useHistory, Link} from "react-router-dom";
 
 // function Copyright() {
 //   return (
@@ -51,27 +53,39 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignIn() {
   const classes = useStyles();
-  console.log("I have no errors")
   const [form, setForm] = useState({
     email: '',
     password: ''
   })
+
+  const { setUser } = useAuth();
+
+  const [error, setError] = useState(false);
+  let history = useHistory();
 
   const handleChange = e => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value })
   }
 
-  const signIn = () => {
+  const signIn = (event) => {
+    event.preventDefault();
+
+    // Make api call to login route...
     API.signIn(form).then(res => {
-      console.log(res)
+      if( res.data.success ) {
+        // Redirect..
+        setUser( res.data.user )
+        history.push('/homepage')
+      } else {
+        console.log('error', res.data.msg)
+        setError(res.data.msg);
+      }
     })
   }
 
 
   return (
-
-
     <>
       {/* <Avatar className={classes.avatar}> */}
       {/* <LockOutlinedIcon /> */}
@@ -79,7 +93,7 @@ export default function SignIn() {
       <Typography component="h1" variant="h5">
         Sign in
         </Typography>
-      <form className={classes.form} noValidate>
+      <form className={classes.form} noValidate onSubmit={(event) => signIn(event)}>
         <TextField
           variant="outlined"
           margin="normal"
@@ -106,6 +120,7 @@ export default function SignIn() {
           control={<Checkbox value="remember" color="primary" />}
           label="Remember me"
         />
+        { error && <Alert severity={'error'}>{error}</Alert>}
         <Button
           type="submit"
           fullWidth
@@ -113,14 +128,12 @@ export default function SignIn() {
           color="#ef8354"
           id="loginBtn"
           className={classes.submit}
-          href="/homepage"
-          onClick={() => signIn()}
         >
           Sign In
           </Button>
         <Grid container>
           <Grid item>
-            <Link href="/signup" variant="body2">
+            <Link to="/signup" variant="body2">
               Don't have an account? Sign Up
               </Link>
           </Grid>

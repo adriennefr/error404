@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect, useHistory } from 'react-router-dom';
 import './App.css';
 import LandingPage from './pages/LandingPage';
 import SignUpPage from './pages/SignUpPage';
@@ -8,47 +8,80 @@ import WorkoutDashboard from './pages/WorkoutDashboard';
 import DoYourOwn from './pages/DoYourOwn';
 import ChallengePage from './pages/ChallengePage';
 import API from './utils/API';
-import WODContext from './utils/store';
+import {WODContext, useAuth, AuthContext} from './utils/store';
+
+function PrivateRoute({ children, ...rest }) {
+  const { user } = useAuth();
+
+  console.log( 'private route', user, rest, children )
+
+  return (
+    <>
+      { user && <Route {...rest}>{children}</Route>}
+      { !user && <Redirect
+          to={{
+            pathname: "/",
+          }}
+        />}
+    </>
+  );
+}
 
 function App() {
   const [WodState, setWodState] = useState({
     WOD: [],
   });
 
+  // Check if user is logged in... VERY UNSAFE
+  const existingUser = JSON.parse(localStorage.getItem("user"));
+  const [currentUser, setCurrentUser] = useState(existingUser);
+
+  const setUser = (user) => {
+    if( user ) {
+      localStorage.setItem("user", JSON.stringify(user));
+    } else {
+      localStorage.removeItem('user');
+    }
+    setCurrentUser(user);
+  }
+
+  const signOut = () => {
+    setUser();
+  }
+
   const changeWod =()=>{
     setWodState({WOD: ['filler', 'filler', 'filler', 'filler']})
   }
 
   useEffect(async () => {
-    if(localStorage.getItem('cache')){
-      let exercises = JSON.parse(localStorage.getItem('cache'));
+    if(localStorage.getItem('exercises')){
+      let exercises = JSON.parse(localStorage.getItem('exercises'));
       setWodState({WOD: exercises})
     }else{
       API.getWod().then((res) => {
-      console.log(res)
-      
-      let rand = Math.floor(Math.random() * res.data.length)
-      localStorage.setItem('cache', JSON.stringify(res.data[rand].exercises))
-      setWodState({ WOD: res.data[rand].exercises })
-    });
+        if( res.data ) {
+          localStorage.setItem('exercises', JSON.stringify(res.data.exercises))
+          setWodState({ WOD: res.data.exercises })
+        }
+      });
     }
   }, [])
 
   return (
-
-    <Router>
-      <Switch>
-        <WODContext.Provider value={{ wod: WodState.WOD, doSomething: changeWod}}>
-          <Route exact path="/" component={LandingPage} />
-          <Route exact path="/signup" component={SignUpPage} />
-          <Route exact path="/homepage" component={Homepage} />
-          <Route exact path="/workoutdashboard" component={WorkoutDashboard} />
-          <Route exact path="/doyourown" component={DoYourOwn} />
-          <Route exact path="/challenge" component={ChallengePage} />
-        </WODContext.Provider>
-      </Switch>
-    </Router>
-
+    <WODContext.Provider value={{wod: WodState.WOD, doSomething: changeWod}}>
+      <AuthContext.Provider value={{user: currentUser, setUser: setUser, signOut: signOut}}>
+        <Router>
+          <Switch>
+                <Route exact path="/" component={LandingPage} />
+                <Route exact path="/signup" component={SignUpPage} />
+                <PrivateRoute exact path="/homepage" component={Homepage} />
+                <PrivateRoute exact path="/workoutdashboard" component={WorkoutDashboard} />
+                <PrivateRoute exact path="/doyourown" component={DoYourOwn} />
+                <PrivateRoute exact path="/challenge" component={ChallengePage} />
+          </Switch>
+        </Router>
+      </AuthContext.Provider>
+    </WODContext.Provider>
   );
 }
 
