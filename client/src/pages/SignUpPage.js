@@ -8,6 +8,7 @@ import {Redirect} from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
     root: {
         backgroundColor: "#B8C0DB",
+        minHeight: '100vh',
         height: "100%"
     },
 }));
