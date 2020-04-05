@@ -26,10 +26,10 @@ export default function TextFieldSizes() {
     const [goals, setGoals] = useState(goalsData)
 
     useEffect(() => {
-        API.getGoals().then(res => {
-            console.log(res)
-            setGoals(res)
-        })
+        // API.getGoals().then(res => {
+        //     console.log(res)
+        //     setGoals(res)
+        // })
     }, [])
 
 
@@ -52,7 +52,7 @@ export default function TextFieldSizes() {
                 {/* <TextField
                     label="Goal"
                     // id="filled-size-small"
-                    
+
                     defaultValue=""
                     variant="filled"
                     // name={i}

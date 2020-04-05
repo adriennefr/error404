@@ -5,7 +5,6 @@ module.exports = {
 
   create: async function (password) {
     let rval = await this.hash(password, 'kitty');
-    console.log(rval)
     return rval.hash;
   },
 
