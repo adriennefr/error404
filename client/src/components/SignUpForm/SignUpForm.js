@@ -17,8 +17,6 @@ import './SignUpForm.css'
 import { Redirect } from "react-router-dom";
 
 
-
-
 // function Copyright() {
 //   return (
 //     <Typography variant="body2" color="textSecondary" align="center">
