@@ -28,7 +28,19 @@ const FitmoodjiUser = new Schema({
         trim: true,
         required: "didnt make your avatar."
     },
-    ownWorkout: [{
+    workouts: [{
+        exercises: [
+            {
+                type: String,
+                trim: true,
+            }
+        ]
+    }],
+    currentMood: {
+        type: Number,
+        default: 5
+    },
+    completedWorkouts: [{
         time: {
             type: String,
             default: "0"
@@ -49,4 +61,4 @@ const FitmoodjiUser = new Schema({
 
 const User = mongoose.model("User", FitmoodjiUser);
 
-module.exports = User; 
+module.exports = User;

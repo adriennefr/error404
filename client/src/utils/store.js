@@ -1,5 +1,8 @@
-import {createContext} from 'react';
+import {createContext, useContext } from 'react';
 
-const WODContext = createContext([])
+export const WODContext = createContext([])
+export const AuthContext = createContext({});
 
-export default WODContext;
+export function useAuth() {
+  return useContext(AuthContext);
+}

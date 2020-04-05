@@ -10,9 +10,10 @@ import Container from '@material-ui/core/Container';
 import Logo from '../components/Logo/Logo'
 
 const useStyles = makeStyles((theme) => ({
-    background: {
+    root: {
         backgroundColor: "#B8C0DB",
-        height: "150vh"
+        height: "100%",
+        marginBottom: '64px'
     },
 }));
 
@@ -20,12 +21,16 @@ function WorkoutPage() {
 
     const classes = useStyles();
 
+    const handleFinish = () => {
+
+    }
+
     return (
-        <Container className={classes.background}>
+        <Container className={classes.root}>
             <Logo />
             <StopwatchHooks />
             <br />
-            <FinishBtn href="/homepage" />
+            <FinishBtn href="/homepage" onClick={() => handleFinish()} />
             <br />
             <GoalCard />
             <NavBar />

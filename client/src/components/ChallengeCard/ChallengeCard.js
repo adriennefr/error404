@@ -7,7 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 // import Typography from '@material-ui/core/Typography';
 import ChallengeItem from '../ChallengeItem/ChallengeItem'
 import './ChallengeCard.css';
-import WODContext from '../../utils/store'
+import {WODContext} from '../../utils/store'
 
 const useStyles = makeStyles({
   root: {

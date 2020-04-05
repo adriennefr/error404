@@ -6,7 +6,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import WODContext from '../../utils/store'
+import { WODContext } from '../../utils/store'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -25,7 +25,6 @@ export default function ImgMediaCard() {
     const {wod} = useContext(WODContext)
     const classes = useStyles();
 
-   
     // const workoutComp = data.map(wo => (<p>{wo}</p>))
 
     // const workoutContext = React.createContext(workoutComp)
@@ -40,7 +39,7 @@ export default function ImgMediaCard() {
                 </CardContent>
             </CardActionArea>
         </Card>
-        
+
 
     );
 }
