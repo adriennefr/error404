@@ -7,6 +7,7 @@ import Homepage from './pages/Homepage';
 import WorkoutDashboard from './pages/WorkoutDashboard';
 import DoYourOwn from './pages/DoYourOwn';
 import ChallengePage from './pages/ChallengePage';
+import WorkoutLog from './pages/WorkoutLog'
 import API from './utils/API';
 import {WODContext, useAuth, AuthContext} from './utils/store';
 
@@ -75,6 +76,7 @@ function App() {
                 <Route exact path="/" component={LandingPage} />
                 <Route exact path="/signup" component={SignUpPage} />
                 <PrivateRoute exact path="/homepage" component={Homepage} />
+                <PrivateRoute exact path="/workoutlog" component={WorkoutLog} />
                 <PrivateRoute exact path="/workoutdashboard" component={WorkoutDashboard} />
                 <PrivateRoute exact path="/doyourown" component={DoYourOwn} />
                 <PrivateRoute exact path="/challenge" component={ChallengePage} />
