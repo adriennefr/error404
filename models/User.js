@@ -23,7 +23,7 @@ const FitmoodjiUser = new Schema({
         trim: true,
         required: "Enter your password"
     },
-    avatar: {
+    gender: {
         type: String,
         trim: true,
         required: "didnt make your avatar."
