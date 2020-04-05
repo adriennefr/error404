@@ -6,7 +6,6 @@ export default {
     setGoals: (arr) => axios.post('/api/goals', arr),
     getGoals: () => axios.get('/api/goals'),
     getFitmoodji: () => axios.get('/api/users'),
-    getWod: () => axios.get('/api/workout/random')          
+    getWod: () => axios.get('/api/workout/random'),
+    getGender: () => axios.get('/api/gender/:id'),   
     }
-
-

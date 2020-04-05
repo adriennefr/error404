@@ -41,8 +41,15 @@ export default function ImgMediaCard() {
   
   useEffect(() => {
     // For demonstration purposes, we mock an API call.
-    API.getFitmoodji().then((res) => {
-      setFitmoodjiState({videoAvatarSrc: res})
+    API.getGender().then((res) => {
+      console.log(res)
+      setFitmoodjiState(() => {
+        // if (male && logged in yesterday) {
+        //   display happy mood
+        // } else if (male && logged in 3 days ago ){
+        //   display content mood
+        // }
+      })
     }); 
   }, []);
 
