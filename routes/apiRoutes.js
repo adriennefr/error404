@@ -126,6 +126,68 @@ router.get('/log/:id', (req, res) => {
         res.json(data)
     })
 })
+
+router.post('/createdummy', (req,res)=>{
+    db.Tips.insertMany([
+        {tip: ["The only bad workout is the one that did not happen."]},
+        {tip: ["You're only one workout away from having a good mood."]},
+        {tip: ["If it doesn't challenege you it won't change you."]},
+        {tip: ["Good things take time."]},
+        {tip: ["Constantly challenge yourself."]},
+        {tip: ["Be stronger than your excuses."]},
+        {tip: ["The harder you fight, the higher you soar."]},
+        {tip: ["No goal was ever met without a little sweat."]},
+        {tip: ["Use the talk test. If you can't speak a sentence or two with each breath, you're pushing too hard."]},
+        {tip: ["Be sure to hydrate throughout the day. It takes a couple of hours for your body to absorb the water, so you can’t just drink right before exercise."]},
+        {tip: ["Pick a cardio exercise you enjoy. It’s no fun to exercise if you hate it. And you won’t keep it up for very long. Pick something that’s fun."]},
+        {tip: ["Exercising with friends is a great way to have fun while training and will also keep you accountable."]},
+        {tip: ["Remember to cool down. Allow for 5-10 minutes of stretching after each workout. This helps your heart rate return to normal and can prevent injury."]},
+        {tip: ["Reframe your negative thoughts. Chances are, you’re harder on yourself than anyone else in your life."]},
+        {tip: ["Set Goals For Your Fitness Training And Be Specific. The more specific you are in terms of your goals, the easier it will be to fulfil them."]},
+        {tip: ["A Huge De-Motivator Is Overtraining. It’s an easy trap to fall into but please don’t increase the duration or intensity of your training too quickly."]},
+        {tip: ["The same way we grow our bodies we must attend to our mind and spirit."]},
+        {tip: ["Your life is a journey that is always evolving in the present, taking shape based on the choices you make every single moment."]},
+        {tip: ["The mind is just like a muscle - the more you exercise it, the stronger it gets and the more it can expand."]}
+    ]).then(response=>{
+        db.Workout.insertMany([
+            {
+                exercises: ["Deadlifts (3 sets, 10 reps)",
+                "Push-ups (3 sets, 10 reps)",
+                "Burpees (3 sets, 10 reps)",
+                "Crunches (2 sets, 25 reps)"
+                ]
+            },
+            {
+                exercises: ["Squat Jumps (3 sets, 15 reps)",
+                "Pull-ups (3 sets, 8 reps)",
+                "Squat Jumps (3 sets, 12 reps)",
+                "Sit-ups (3 sets, 12 reps)"
+                ]
+            },
+            {
+                exercises: ["Reverse Lunge (3 sets, 10 reps per side)",
+                "Bent-over Rows (3 sets, 10 reps)",
+                "Tuck Jumps (3 sets, 8 reps)",
+                "Mountain Climbers (3 sets, 15 reps per side)"
+                ]
+            },
+            {
+                exercises: ["Squat (3 sets, 15 reps)",
+                "Shoulder Press (3 sets, 10 reps)",
+                "Jumping Jacks (3 sets, 25 reps)",
+                "Bicycle Crunches (3 sets, 12 reps per side)"
+                ]
+            },
+            {
+                exercises: ["Side Lunge (3 sets, 10 reps per side)",
+                "Chest Press (3 sets, 10 reps)",
+                "High Knees (3 sets, 15 reps per leg)",
+                "Leg Raise (3 sets, 12 reps)"
+                ]
+            }
+        ]).then(success=> res.json('success!'))
+    })
+})
 //get goals for doyourown page
 // router.get('/goals', (req,res)=>{
 //     res.json()
