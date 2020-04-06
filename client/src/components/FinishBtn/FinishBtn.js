@@ -10,10 +10,16 @@ const useStyles = makeStyles((theme) => ({
     button: {
         margin: theme.spacing(1),
     },
-    finishBtn : {
-        color: finishRed,
-        borderColor: finishRed,
-    }
+    // finishBtn : {
+    //     color: finishRed,
+    //     borderColor: finishRed,
+    // },
+    buttonStyle: {
+        fontSize: '14px',
+        fontFamily: "Bellota",
+        color: "red",
+        fontWeight: "bold"
+        }
 }));
 
 function FinishBtn({ onClick }) {
@@ -22,8 +28,8 @@ function FinishBtn({ onClick }) {
     return (
         <div className="finishBtn-content">
             <Button
-            variant="outlined"
-            className={`${classes.button} ${classes.finishBtn}`}
+            variant="contained"
+            className={`${classes.button} ${classes.buttonStyle}`}
             onClick={() => {console.log('clicked');onClick()}}>
                 Finish Workout
             </Button>

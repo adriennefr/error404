@@ -20,7 +20,7 @@ export default function SimpleContainer() {
         <React.Fragment>
             <br></br>
             <Container maxWidth="sm" className={classes.container}>
-                    <img src={`/images/work-${user.gender}.png`} height="250" ></img>
+                    <img style={{marginTop: "-13px"}} src={`/images/work-${user.gender}.png`} height="250" ></img>
             </Container>
         </React.Fragment>
     );
