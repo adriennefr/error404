@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 // import "./App.css";
-import StopwatchHooks from '../components/Stopwatch/StopwatchHooks'
+import Stopwatch from '../components/Stopwatch/Stopwatch'
 import FinishBtn from '../components/FinishBtn/FinishBtn'
 import GoalCard from '../components/GoalCard/GoalCard'
 import NavBar from '../components/NavBar/NavBar'
@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function WorkoutPage() {
+    const [currentTime, setCurrentTime] = useState(0);
 
     const classes = useStyles();
 
@@ -29,7 +30,7 @@ function WorkoutPage() {
     return (
         <Container className={classes.root}>
             <Logo />
-            <StopwatchHooks />
+            <Stopwatch onTimeChange={(time) => setCurrentTime(time)} />
             <br />
             <FinishBtn href="/homepage" onClick={() => handleFinish()} />
             <br />
