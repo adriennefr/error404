@@ -62,6 +62,7 @@ function App() {
         if( res.data ) {
           console.log(res.data)
           let rand = Math.floor(Math.random()*res.data.length)
+          console.log(rand)
           localStorage.setItem('exercises', JSON.stringify(res.data[rand].exercises))
           setWodState({ WOD: res.data[rand].exercises })
         }

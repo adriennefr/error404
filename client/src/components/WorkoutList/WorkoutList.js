@@ -61,7 +61,7 @@ export default function WorkoutList({ workouts }) {
                   Exercises
                 </Typography>
                 <ul className={classes.list} style={{lineHeight: "32px"}}>
-                  {workout.exercises && workout.exercises.map((exercise) => <li>{exercise}</li>)}
+                  {workout.exercises && workout.exercises.map((exercise,i) => <li key={i}>{exercise}</li>)}
                 </ul>
               </CardContent>
             </Card>

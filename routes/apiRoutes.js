@@ -102,11 +102,11 @@ router.put('/user/update/:id', (req, res) => {
 
 //get a random workout
 
-router.get('/workout/random', (req, res) => {
+router.get('/workouts', (req, res) => {
     db.Workout.find({}).then(data => {
         console.log(data);
-        let rand = Math.floor(Math.random() * data.length);
-        res.json(data[rand]);
+        // let rand = Math.floor(Math.random() * data.length);
+        res.json(data);
     })
 })
 
@@ -116,6 +116,14 @@ router.get('/tips', (req, res) => {
         console.log(data);
         let rand = Math.floor(Math.random() * data.length);
         res.json(data[rand]);
+    })
+})
+
+//log workouts
+router.get('/log/:id', (req, res) => {
+    db.User.findById(req.params.id)
+    .then(data => {
+        res.json(data)
     })
 })
 //get goals for doyourown page
