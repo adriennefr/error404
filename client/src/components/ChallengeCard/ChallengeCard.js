@@ -29,7 +29,6 @@ const useStyles = makeStyles({
 export default function ChallengeCard() {
   const classes = useStyles();
   const {wod} = useContext(WODContext)
-  const bull = <span className={classes.bullet}>•</span>;
 
   return (
     <Card className={classes.root} id="challengeCard" variant="outlined">
