@@ -15,21 +15,21 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 345,
     marginTop: '5px',
     display: "flex",
-    justifyContent: "center",
+    // justifyContent: "center",
   },
   cardStyle: {
     color: "white",
     backgroundColor: "#737373",
     marginBottom: "10px",
-    fontFamily: 'Dosis'
+    fontFamily: 'Bellota'
   },
   list: {
     listStyleType: "none",
-    marginLeft: "8px",
-    fontSize: "20px"
+    fontSize: "15px",
+    textAlign: "center"
   },
   contentStyle: {
-    padding: '16px 16px 16px 16px !important'
+    padding: '10px 10px 10px 10px !important'
   }
   
 
@@ -50,17 +50,17 @@ export default function WorkoutList({ workouts }) {
           <Grid item xs={12} md={6} lg={4}>
             <Card className={classes.root, classes.cardStyle}>
               <CardContent className={classes.contentStyle}>
-                <Typography gutterBottom variant="h4" component="h4" align="center" style={{fontFamily: "Dosis"}}>
+                <Typography variant="h5" component="h5" align="center" style={{fontFamily: "Bellota", marginTop: "-10px", color:"#85FFCE"}}>
                   Time
                 </Typography>
-                <Typography gutterBottom variant="h4" component="h4" align="center" style={{fontFamily: "Dosis"}}>
+                <Typography variant="h5" component="h5" align="center" style={{fontFamily: "Bellota", marginTop: "-5px"}}>
                   {hours} : {minutes} : {seconds}
                 </Typography>
 
-                <Typography gutterBottom variant="h4" component="h4" align="center" style={{fontFamily: "Dosis"}}>
+                <Typography variant="h5" component="h5" align="center" style={{fontFamily: "Bellota", marginTop: "10px", marginBottom: "-10px", color:"#85FFCE"}}>
                   Exercises
                 </Typography>
-                <ul className={classes.list} style={{lineHeight: "32px"}}>
+                <ul className={classes.list} style={{lineHeight: "25px", marginBottom: "-3px", paddingInlineStart: "0px"}}>
                   {workout.exercises && workout.exercises.map((exercise) => <li>{exercise}</li>)}
                 </ul>
               </CardContent>

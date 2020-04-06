@@ -1,5 +1,4 @@
 import React from 'react';
-// import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import WorkoutButtons from '../components/WorkoutButtons/WorkoutButtons'
 import NavBar from '../components/NavBar/NavBar'
@@ -13,8 +12,8 @@ const useStyles = makeStyles((theme) => ({
     root: {
         backgroundColor: "#B8C0DB",
         height: "100%",
-        minHeight: '100vh',
-        marginBottom: '64px'
+        minHeight: '100%',
+        marginBottom: '56px'
     },
 }));
 
@@ -29,7 +28,6 @@ function WorkoutDashboard() {
                 <Logo />
                 <WOD />
                 <WorkoutButtons />
-                <br></br>
                 <WorkoutFitmoodji />
                 <NavBar />
             </Container>

@@ -1,10 +1,8 @@
 import React, { useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-// import video from '../../assets/moods/Female/3.gif'
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
-// import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { WODContext } from '../../utils/store'
 
@@ -17,6 +15,11 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         justifyContent: "center",
     },
+    cardContentStyle: {
+        textAlign: "center",
+        fontFamily: "Bellota",
+        padding: "0px"
+    }
 
 }));
 
@@ -31,11 +34,11 @@ export default function ImgMediaCard() {
     return (
         <Card className={classes.root}>
             <CardActionArea>
-                <CardContent>
-                    {wod.map((item,i) => <p key={i}>{item}</p>)}
-                    <Typography gutterBottom variant="h5" component="h2" align="center">
+                    <Typography style={{fontFamily: "Bellota", fontWeight: "bold", marginBottom: "0px"}} gutterBottom variant="h5" component="h2" align="center">
                         Workout Of The Day
                     </Typography>
+                <CardContent className={classes.cardContentStyle}>
+                    {wod.map((item,i) => <p style={{margin:"5px"}} key={i}>{item}</p>)}
                 </CardContent>
             </CardActionArea>
         </Card>
