@@ -9,13 +9,14 @@ const useStyles = makeStyles((theme) => ({
     container: {
         display: "flex",
         justifyContent: "center",
-        marginTop: "15px"
+        marginTop: "10px"
     },
     margin: {
         margin: theme.spacing(1),
     },
     buttonStyle: {
         fontSize: '12px',
+        fontFamily: "Bellota",
         color: "#85FFCE",
         backgroundColor: "#4E5659",
         '&:hover': {

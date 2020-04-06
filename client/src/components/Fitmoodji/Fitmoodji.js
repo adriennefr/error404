@@ -47,14 +47,14 @@ export default function ImgMediaCard() {
         <CardMedia
           component="img"
           alt="Fitmoodji"
-          height="400"
+          height="230"
           src={`/moods/${user.gender}/${user.currentMood}.gif`}
           title="Fitmoodji Mood"
           autoPlay={true}
           loop={true}
         />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2" align="center">
+        <CardContent style={{paddingBottom: "5px"}}>
+          <Typography style={{fontFamily: "Bellota", fontWeight: "bold"}} gutterBottom variant="h5" component="h2" align="center">
             Your Mood
           </Typography>
         </CardContent>
