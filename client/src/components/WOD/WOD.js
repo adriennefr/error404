@@ -34,7 +34,7 @@ export default function ImgMediaCard() {
                 <CardContent>
                     {wod.map((item,i) => <p key={i}>{item}</p>)}
                     <Typography gutterBottom variant="h5" component="h2" align="center">
-                        WOD
+                        Workout Of The Day
                     </Typography>
                 </CardContent>
             </CardActionArea>

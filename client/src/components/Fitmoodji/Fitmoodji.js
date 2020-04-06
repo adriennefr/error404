@@ -48,7 +48,7 @@ export default function ImgMediaCard() {
         <CardMedia
           component="img"
           alt="Fitmoodji"
-          height="280"
+          height="400"
           src={`/moods/${user.gender}/${user.currentMood}.gif`}
           title="Fitmoodji Mood"
           autoPlay={true}
