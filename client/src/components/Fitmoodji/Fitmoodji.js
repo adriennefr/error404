@@ -10,8 +10,12 @@ import { useAuth } from "../../utils/store";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    // flexGrow: 1,
+    flexGrow: 1,
     maxWidth: 345,
+    [`@media (min-width: 375px)`] : {
+      width: 375,
+      height: "60%",
+    },
   },
   grid: {
     position: 'absolute',
