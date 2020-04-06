@@ -8,7 +8,8 @@ export default {
     getFitmoodji: () => axios.get('/api/users'),
     getWod: () => axios.get('/api/workout/random'),
     getGender: () => axios.get('/api/gender/:id'),   
-    updateUser: (data, id) => axios.put(`/api/user/update/${id}`, data)
+    updateUser: (data, id) => axios.put(`/api/user/update/${id}`, data),
+    getTip: () => axios.get('/api/tips')
 }
 
 
