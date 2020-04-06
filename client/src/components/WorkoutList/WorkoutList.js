@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     // flexGrow: 1,
@@ -16,6 +17,21 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
   },
+  cardStyle: {
+    color: "white",
+    backgroundColor: "#737373",
+    marginBottom: "10px",
+    fontFamily: 'Dosis'
+  },
+  list: {
+    listStyleType: "none",
+    marginLeft: "8px",
+    fontSize: "20px"
+  },
+  contentStyle: {
+    padding: '16px 16px 16px 16px !important'
+  }
+  
 
 }));
 
@@ -32,19 +48,19 @@ export default function WorkoutList({ workouts }) {
         let hours = ("0" + Math.floor(workout.time / 3600000)).slice(-2);
         return (
           <Grid item xs={12} md={6} lg={4}>
-            <Card className={classes.root}>
-              <CardContent>
-                <Typography gutterBottom variant="p" component="p" align="center">
+            <Card className={classes.root, classes.cardStyle}>
+              <CardContent className={classes.contentStyle}>
+                <Typography gutterBottom variant="h4" component="h4" align="center" style={{fontFamily: "Dosis"}}>
                   Time
                 </Typography>
-                <Typography gutterBottom variant="h5" component="h2" align="center">
+                <Typography gutterBottom variant="h4" component="h4" align="center" style={{fontFamily: "Dosis"}}>
                   {hours} : {minutes} : {seconds}
                 </Typography>
 
-                <Typography gutterBottom variant="p" component="p" align="center">
+                <Typography gutterBottom variant="h4" component="h4" align="center" style={{fontFamily: "Dosis"}}>
                   Exercises
                 </Typography>
-                <ul>
+                <ul className={classes.list} style={{lineHeight: "32px"}}>
                   {workout.exercises && workout.exercises.map((exercise) => <li>{exercise}</li>)}
                 </ul>
               </CardContent>
