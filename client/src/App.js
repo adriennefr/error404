@@ -50,6 +50,7 @@ function App() {
   const signOut = () => {
     setCurrentUser(null);
     window.location.replace("/")
+    localStorage.clear();
   }
 
   useEffect(async () => {
