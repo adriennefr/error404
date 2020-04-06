@@ -9,6 +9,8 @@ import './SignInCard.css'
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
+    width: "50%",
+    margin: "auto",
   },
   bullet: {
     display: 'inline-block',
@@ -21,6 +23,11 @@ const useStyles = makeStyles({
   pos: {
     marginBottom: 12,
   },
+  logo: {
+    [`@media (min-width: 768px)`] : {
+      width: '100%'
+    }
+  }
 });
 
 export default function SignInCard() {
