@@ -5,7 +5,8 @@ import TextField from '@material-ui/core/TextField';
 import SaveIcon from '@material-ui/icons/Save';
 import Grid from '@material-ui/core/Grid';
 import './GoalInput.css';
-import API from '../../utils/API'
+import API from '../../utils/API';
+import {useAuth} from "../../utils/store";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -24,12 +25,11 @@ export default function TextFieldSizes() {
 
     const goalsData = ["", "", "", "", ""]
     const [goals, setGoals] = useState(goalsData)
+    const [ currentTime, setCurrentTime ] = useState(0);
+    const { user, setCurrentUser} = useAuth();
 
     useEffect(() => {
-        // API.getGoals().then(res => {
-        //     console.log(res)
-        //     setGoals(res)
-        // })
+        localStorage.setItem('exercise', JSON.stringify(goals))
     }, [])
 
 
@@ -42,7 +42,10 @@ export default function TextFieldSizes() {
     }
 
     const handleSave = (arr) => {
-        API.setGoals(arr).then(res => console.log(res))
+        API.updateUser({
+            time: currentTime,
+            exercises: goals
+          }, user._id)
     };
 
     return (
