@@ -19,6 +19,9 @@ const useStyles = makeStyles((theme) => ({
     },
     startBtn: {
         backgroundColor: "rgb(145, 223, 191)",
+        fontFamily: "Bellota",
+        fontSize: "16px",
+        fontWeight: "bold"
     },
     pauseBtn: {
         backgroundColor: "rgb(230, 187, 109)",
@@ -28,6 +31,11 @@ const useStyles = makeStyles((theme) => ({
     },
     saveBtn: {
         backgroundColor: "rgb(113, 184, 212)"
+    },
+    cardContentStyle: {
+        color: "white",
+        backgroundColor: "#4E5659",
+        padding: "10px 10px 10px 10px !important"
     }
 }));
 
@@ -82,7 +90,7 @@ function Stopwatch({ onTimeChange }) {
         <div className="Stopwatch-display">
 
             <Card className={classes.root} variant="outlined">
-                <CardContent>
+                <CardContent className={classes.cardContentStyle}>
                     {hours} : {minutes} : {seconds}
                 </CardContent>
             </Card>

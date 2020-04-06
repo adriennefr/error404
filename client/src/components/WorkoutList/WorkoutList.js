@@ -60,7 +60,7 @@ export default function WorkoutList({ workouts }) {
                 <Typography variant="h5" component="h5" align="center" style={{fontFamily: "Bellota", marginTop: "10px", marginBottom: "-10px", color:"#85FFCE"}}>
                   Exercises
                 </Typography>
-                <ul className={classes.list} style={{lineHeight: "32px"}}>
+                <ul className={classes.list} style={{lineHeight: "21px", padding: "0px"}}>
                   {workout.exercises && workout.exercises.map((exercise,i) => <li key={i}>{exercise}</li>)}
                 </ul>
               </CardContent>
