@@ -109,8 +109,8 @@ router.get('/workout/random', (req, res) => {
 router.get('/tips', (req, res) => {
     db.Tips.find({}).then(data => {
         console.log(data)
-        // let rand = Math.floor(Math.random() * data.length)
-        res.json(data)
+        let rand = Math.floor(Math.random() * data.length)
+        res.json(data[rand])
     })
 })
 //get goals for doyourown page
