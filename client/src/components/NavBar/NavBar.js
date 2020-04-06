@@ -46,9 +46,11 @@ export default function BottomAppBar() {
                                 </IconButton>
                             </Link>
 
+                            <Link to='/workoutlog'>
                             <IconButton size="medium" color="inherit">
                                 <BarChartIcon className={classes.buttonColor}/>
                             </IconButton>
+                            </Link>
 
                             <Link to='/workoutdashboard'>
                                 <IconButton size="medium" color="inherit">
@@ -59,10 +61,6 @@ export default function BottomAppBar() {
                             <IconButton size="medium" color="inherit">
                                 <GroupIcon className={classes.buttonColor}/>
                             </IconButton>
-                            <IconButton size="medium" color="inherit">
-                                <AccountBoxIcon className={classes.buttonColor}/>
-                            </IconButton>
-
 
                             <IconButton size="medium" color="inherit" onClick={() => signOut()}>
                                 <ExitToAppIcon className={classes.buttonColor}/>
