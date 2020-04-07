@@ -17,7 +17,8 @@ const useStyles = makeStyles((theme) => ({
         [`@media (min-width: 768px)`] : {
             width: 575,
             height: 350,
-            padding: "30px"
+            padding: "30px",
+            paddingTop: "1px",
         },
     },
     cardContentStyle: {

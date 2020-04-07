@@ -9,13 +9,17 @@ const useStyles = makeStyles((theme) => ({
     container: {
         display: "flex",
         justifyContent: "center",
-        marginTop: "10px"
+        marginTop: "10px",
+        [`@media (min-width: 768px)`]: {
+            justifyContent: "center"
+        }
     },
     div: {
         [`@media (min-width: 768px)`]: {
             display: "flex",
             justifyContent: "center",
-            margin: "15px"
+            margin: "15px",
+            marginRight: "90px"
         },
 
     },
@@ -35,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
             width: "130%",
             fontSize: 16,
         },
+   
     },
 }));
 

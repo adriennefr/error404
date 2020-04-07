@@ -18,9 +18,15 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: '56px'
     },
     title: {
-        fontSize: 36,
+        fontSize: 30,
+        fontWeight: "bold",
         color: "white",
         fontFamily: 'Bellota',
+        [`@media (min-width: 768px)`]: {
+            fontSize: 50,
+            fontWeight: "bold",
+            marginBottom: "25px"
+        },
     },
 }));
 
@@ -39,7 +45,7 @@ const [log, setLog] = useState([]);
             <Container maxWidth="lg" className={classes.root}>
                 <Logo />
                 <Typography align="center" className={classes.title}>
-                        Your Workout Log
+                        Workout Log
                 </Typography>
                 <WorkoutList workouts={log}/>
                 <NavBar />

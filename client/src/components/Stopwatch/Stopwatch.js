@@ -13,6 +13,9 @@ const useStyles = makeStyles((theme) => ({
         minWidth: 275,
         marginTop: "10%",
         fontSize: "200%",
+        [`@media (min-width: 768px)`]: {
+            marginTop: "1%"
+        },
     },
     button: {
         margin: theme.spacing(1),
