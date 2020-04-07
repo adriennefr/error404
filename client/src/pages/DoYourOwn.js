@@ -77,11 +77,13 @@ function WorkoutPage() {
         API.updateUser({
             time: currentTime,
             exercises: goals
-        }, user._id).then(
-            // Send user to homepage..
-            history.push('/workoutlog'))
-            console.log(goals)
-    }
+        }, user._id).then((res) => {
+            if (res.data.success) {
+                console.log(res.data)
+                setCurrentUser(res.data._doc);
+                history.push('/workoutlog')
+              }
+            })}
 
     
 

@@ -13,7 +13,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
 let tipSeed = [
     {tip: ["The only bad workout is the one that did not happen."]},
     {tip: ["You're only one workout away from having a good mood."]},
-    {tip: ["If it doesn't challenege you it won't change you."]},
+    {tip: ["If it doesn't challenge you it won't change you."]},
     {tip: ["Good things take time."]},
     {tip: ["Constantly challenge yourself."]},
     {tip: ["Be stronger than your excuses."]},
