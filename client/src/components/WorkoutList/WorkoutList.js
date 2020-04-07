@@ -20,8 +20,9 @@ const useStyles = makeStyles((theme) => ({
   cardStyle: {
     color: "white",
     backgroundColor: "#737373",
-    marginBottom: "10px",
-    fontFamily: 'Bellota'
+    margin: "10px",
+    fontFamily: 'Bellota',
+
   },
   list: {
     listStyleType: "none",
