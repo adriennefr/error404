@@ -12,10 +12,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     maxWidth: 345,
-    [`@media (min-width: 375px)`] : {
-      width: 375,
-      height: "60%",
-    },
   },
   grid: {
     position: 'absolute',
@@ -32,7 +28,15 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
-
+  cardMedia: {
+    [`@media (min-width: 375px)`] : {
+      height: 300,
+    },
+    [`@media (min-width: 768px)`] : {
+      width: 400,
+      height: 450,
+    },
+  }
 }));
 
 
@@ -50,6 +54,7 @@ export default function ImgMediaCard() {
       <CardActionArea>
         <CardMedia
           component="img"
+          className={classes.cardMedia}
           alt="Fitmoodji"
           height="230"
           src={`/moods/${user.gender}/${user.currentMood}.gif`}

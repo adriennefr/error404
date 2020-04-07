@@ -14,9 +14,9 @@ const useStyles = makeStyles((theme) => ({
     root: {
         height: "103vh",
         minHeight: "100%",
-        marginBottom: "7%",
+        // marginBottom: "7%",
         backgroundColor: "#B8C0DB",
-        paddingBottom: "10%"
+        paddingBottom: "10%",
     },
     tip: {
         fontFamily: "Bellota",
@@ -38,6 +38,13 @@ const useStyles = makeStyles((theme) => ({
     icon: {
         fontSize: "small",
     },
+    container: {
+        [`@media (min-width: 768px)`]: {
+            display: "flex",
+            justifyContent: "center",
+            margin: "auto"
+        },
+    }
     // grid: {
     //     height: "100%",
     //     minHeight: "100%",
@@ -62,17 +69,22 @@ function Homepage() {
         <div className={`${classes.root} rootDirectory`}>
             <Container maxWidth="lg">
                 <Logo />
-                <FitMoodji />
-                <Card className={classes.card}>
-                    <CardContent>
-                        <Typography align="center" className={classes.title} color="textSecondary" gutterBottom>
-                            <FitnessCenterIcon className={classes.icon} />
+
+                <div className={classes.container}>
+                    <FitMoodji />
+                </div>
+                <div className={classes.container}>
+                    <Card className={classes.card}>
+                        <CardContent>
+                            <Typography align="center" className={classes.title} color="textSecondary" gutterBottom>
+                                <FitnessCenterIcon className={classes.icon} />
                             Today's Tip
                             <FitnessCenterIcon className={classes.icon} />
-                        </Typography>
-                        <Typography className={classes.tip}>{tip}</Typography>
-                    </CardContent>
-                </Card>
+                            </Typography>
+                            <Typography className={classes.tip}>{tip}</Typography>
+                        </CardContent>
+                    </Card>
+                </div>
                 <NavBar />
             </Container>
         </div>
