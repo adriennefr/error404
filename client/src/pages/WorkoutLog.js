@@ -47,7 +47,9 @@ const [log, setLog] = useState([]);
                 <Typography align="center" className={classes.title}>
                         Workout Log
                 </Typography>
-                <WorkoutList workouts={log}/>
+
+                {log.length ===0 ? <div>No Workout Log</div> : <WorkoutList workouts={log}/>}
+                
                 <NavBar />
             </Container>
     );
