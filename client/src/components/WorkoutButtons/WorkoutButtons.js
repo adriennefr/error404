@@ -11,6 +11,14 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: "center",
         marginTop: "10px"
     },
+    div: {
+        [`@media (min-width: 768px)`]: {
+            display: "flex",
+            justifyContent: "center",
+            margin: "15px"
+        },
+
+    },
     margin: {
         margin: theme.spacing(1),
     },
@@ -22,7 +30,11 @@ const useStyles = makeStyles((theme) => ({
         '&:hover': {
             backgroundColor: "#85FFCE",
             color: "#4E5659"
-          },
+        },
+        [`@media (min-width: 768px)`]: {
+            width: "130%",
+            fontSize: 16,
+        },
     },
 }));
 
@@ -30,7 +42,7 @@ export default function OutlinedButtons() {
     const classes = useStyles();
 
     return (
-        <>
+        <div className={classes.div}>
             <Container className={classes.container}>
                 <Link to='/challenge' style={{ textDecoration: 'none' }}>
                     <Button variant="contained" color="primary" className={classes.margin, classes.buttonStyle}>
@@ -46,6 +58,6 @@ export default function OutlinedButtons() {
                      </Button>
                 </Link>
             </Container>
-        </>
+        </div>
     )
 };

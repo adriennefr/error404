@@ -15,6 +15,10 @@ const useStyles = makeStyles((theme) => ({
         minHeight: '100%',
         marginBottom: '56px'
     },
+    wod: {
+        display: "flex",
+        justifyContent: "center",
+    }
 }));
 
 function WorkoutDashboard() {
@@ -26,7 +30,10 @@ function WorkoutDashboard() {
     return (
             <Container maxWidth="lg" className={classes.root}>
                 <Logo />
-                <WOD />
+                <div className={classes.wod}>
+                    <WOD />
+                </div>
+                
                 <WorkoutButtons />
                 <WorkoutFitmoodji />
                 <NavBar />

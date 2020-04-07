@@ -13,11 +13,25 @@ const useStyles = makeStyles((theme) => ({
         maxHeight: 200,
         display: "flex",
         justifyContent: "center",
+        padding: "10px",
+        [`@media (min-width: 768px)`] : {
+            width: 575,
+            height: 350,
+            padding: "30px"
+        },
     },
     cardContentStyle: {
         textAlign: "center",
         fontFamily: "Bellota",
-        padding: "0px"
+        padding: "0px",
+        [`@media (min-width: 768px)`] : {
+            fontSize: 24,
+        },
+    },
+    title: {
+        [`@media (min-width: 768px)`] : {
+            fontSize: 36,
+        },
     }
 
 }));
@@ -33,7 +47,7 @@ export default function ImgMediaCard() {
     return (
         <Card className={classes.root}>
             <CardActionArea>
-                    <Typography style={{fontFamily: "Bellota", fontWeight: "bold", marginBottom: "0px", padding: "5px 5px 0px 5px"}} gutterBottom variant="h5" component="h2" align="center">
+                    <Typography className={classes.title} style={{fontFamily: "Bellota", fontWeight: "bold", marginBottom: "0px", padding: "5px 5px 0px 5px"}} gutterBottom variant="h5" component="h2" align="center">
                         Workout Of The Day
                     </Typography>
                 <CardContent className={classes.cardContentStyle}>
