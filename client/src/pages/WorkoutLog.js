@@ -61,7 +61,7 @@ const [log, setLog] = useState([]);
                 {log.length === 0 ? 
                     <div>
                         <Typography align="center" className={classes.body}>
-                        No logs yet, let's get your workout started!
+                        No logs yet, let's get you movin' to get the mood in!
                         </Typography>
                     </div> : 
                 <WorkoutList workouts={log}/>}
