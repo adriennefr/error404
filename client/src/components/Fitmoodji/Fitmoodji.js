@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
       height: 300,
     },
     [`@media (min-width: 768px)`] : {
-      width: 400,
+      width: 351,
       height: 450,
     },
   }

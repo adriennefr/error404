@@ -18,6 +18,12 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
     minHeight: '100vh',
   },
+  WOD: {
+    [`@media (min-width: 768px)`]: {
+      display: "flex",
+      justifyContent: "center",
+    }
+  },
 }));
 
 function ChallengePage() {
@@ -55,7 +61,9 @@ function ChallengePage() {
       <br />
       <FinishBtn onClick={handleFinish} />
       <br />
-      <WOD />
+      <div className={classes.WOD}>
+        <WOD />
+      </div>
       <NavBar />
     </Container>
   );
