@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: "#B8C0DB",
         height: "100%",
         minHeight: '100%',
-        marginBottom: '56px'
+        marginBottom: '43px'
     },
     wod: {
         display: "flex",

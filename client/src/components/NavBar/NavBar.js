@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
         top: 'auto',
         bottom: 0,
         background: "linear-gradient(180deg, #737373 30%, #4E5659 90%)",
-        
+
     },
     buttonColor: {
         color: "#85FFCE",
@@ -38,37 +38,39 @@ export default function BottomAppBar() {
 
     return (
         <React.Fragment>
-                <AppBar position="fixed" color="primary" className={classes.appBar}>
-                    <Toolbar>
-                        <Box mx="auto">
-                            <Link to='/homepage'>
-                                <IconButton size='medium' >
-                                    <HomeIcon className={classes.buttonColor}/>
-                                </IconButton>
-                            </Link>
+            <AppBar position="fixed" color="primary" className={classes.appBar}>
+                <Toolbar>
+                    <Box mx="auto">
+                        <Link to='/homepage'>
+                            <IconButton size='medium' >
+                                <HomeIcon className={classes.buttonColor} />
+                            </IconButton>
+                        </Link>
 
-                            <Link to='/workoutlog'>
+                        <Link to='/workoutlog'>
                             <IconButton size="medium" color="inherit">
-                                <BarChartIcon className={classes.buttonColor}/>
+                                <BarChartIcon className={classes.buttonColor} />
                             </IconButton>
-                            </Link>
+                        </Link>
 
-                            <Link to='/workoutdashboard'>
-                                <IconButton size="medium" color="inherit">
-                                    <FitnessCenterIcon className={classes.buttonColor}/>
-                                </IconButton>
-                            </Link>
-
+                        <Link to='/workoutdashboard'>
                             <IconButton size="medium" color="inherit">
-                                <GroupIcon className={classes.buttonColor}/>
+                                <FitnessCenterIcon className={classes.buttonColor} />
                             </IconButton>
+                        </Link>
 
-                            <IconButton size="medium" color="inherit" onClick={() => signOut()}>
-                                <ExitToAppIcon className={classes.buttonColor}/>
+                        <Link to='/community'>
+                            <IconButton size="medium" color="inherit">
+                                <GroupIcon className={classes.buttonColor} />
                             </IconButton>
-                        </Box>
-                    </Toolbar>
-                </AppBar>
+                        </Link>
+
+                        <IconButton size="medium" color="inherit" onClick={() => signOut()}>
+                            <ExitToAppIcon className={classes.buttonColor} />
+                        </IconButton>
+                    </Box>
+                </Toolbar>
+            </AppBar>
         </React.Fragment>
     );
 }

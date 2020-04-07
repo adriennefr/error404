@@ -25,7 +25,7 @@ export default function SimpleContainer() {
         <React.Fragment>
             <br></br>
             <Container maxWidth="sm" className={classes.container}>
-                    <img className={classes.bitmoji} style={{marginTop: "-13px"}} src={`/images/work-${user.gender}.png`} height="250" ></img>
+                    <img className={classes.bitmoji} style={{marginTop: "-13px"}} src={`/images/work-${user.gender}.png`} height="240" ></img>
             </Container>
         </React.Fragment>
     );

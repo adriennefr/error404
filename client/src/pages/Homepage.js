@@ -12,7 +12,7 @@ import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        height: "103vh",
+        height: "106vh",
         minHeight: "100%",
         // marginBottom: "7%",
         backgroundColor: "#B8C0DB",
