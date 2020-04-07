@@ -1,8 +1,9 @@
 .femaleSignUp {
-    border-radius: 50%;
     width: 33%;
+    border-radius: 50%;
 }
 
 .selected {
     box-shadow: 0 4px 8px 0 blueviolet, 0 6px 20px 0 rebeccapurple;
 }
+
