@@ -43,7 +43,7 @@ function ChallengePage() {
       if (res.data.success) {
         console.log(res.data)
         setCurrentUser(res.data._doc);
-        history.push('/homepage')
+        history.push('/workoutlog')
       }
     })
 

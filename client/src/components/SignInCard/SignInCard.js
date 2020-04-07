@@ -23,11 +23,6 @@ const useStyles = makeStyles({
   pos: {
     marginBottom: 12,
   },
-  logo: {
-    [`@media (min-width: 768px)`] : {
-      width: '100%'
-    }
-  }
 });
 
 export default function SignInCard() {
