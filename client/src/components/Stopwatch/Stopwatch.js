@@ -24,7 +24,8 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: "bold"
     },
     pauseBtn: {
-        backgroundColor: "rgb(230, 187, 109)",
+        backgroundColor: "#4E5659",
+        color: "#85FFCE"
     },
     resetBtn: {
         backgroundColor: "rgb(148, 153, 155)",
@@ -34,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     },
     cardContentStyle: {
         color: "white",
-        backgroundColor: "#4E5659",
+        backgroundColor: "#737373",
         padding: "10px 10px 10px 10px !important"
     }
 }));
@@ -104,7 +105,7 @@ function Stopwatch({ onTimeChange }) {
             {timerOn === false && timerTime === 0 && (
                 <Button
                     variant="contained"
-                    color="primary"
+                    color="#4E5659"
                     size="large"
                     className={`${classes.button} ${classes.startBtn}`}
                     startIcon={<PlayCircleOutlineIcon />}
@@ -116,7 +117,6 @@ function Stopwatch({ onTimeChange }) {
             {timerOn === true && (
                 <Button
                     variant="contained"
-                    color="primary"
                     size="large"
                     className={`${classes.button} ${classes.pauseBtn}`}
                     startIcon={<PauseCircleOutlineIcon />}
@@ -128,7 +128,7 @@ function Stopwatch({ onTimeChange }) {
             {timerOn === false && timerTime > 0 && (
                 <Button
                     variant="contained"
-                    color="primary"
+                    color="#4E5659"
                     size="medium"
                     className={`${classes.button} ${classes.startBtn}`}
                     startIcon={<PlayCircleOutlineIcon />}

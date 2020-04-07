@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#B8C0DB",
     height: "100%",
     minHeight: '100vh',
-    marginBottom: '64px'
   },
 }));
 
@@ -43,7 +42,7 @@ function ChallengePage() {
       if (res.data.success) {
         console.log(res.data)
         setCurrentUser(res.data._doc);
-        history.push('/homepage')
+        history.push('/workoutlog')
       }
     })
 
