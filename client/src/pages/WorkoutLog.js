@@ -7,6 +7,8 @@ import Logo from '../components/Logo/Logo'
 import {useAuth} from "../utils/store";
 import WorkoutList from "../components/WorkoutList/WorkoutList";
 import API from '../utils/API';
+import Typography from '@material-ui/core/Typography';
+// import { Autocomplete } from '@material-ui/lab';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -14,6 +16,11 @@ const useStyles = makeStyles((theme) => ({
         height: "100%",
         minHeight: '100%',
         marginBottom: '56px'
+    },
+    title: {
+        fontSize: 36,
+        color: "white",
+        fontFamily: 'Bellota',
     },
 }));
 
@@ -31,6 +38,9 @@ const [log, setLog] = useState([]);
     return (
             <Container maxWidth="lg" className={classes.root}>
                 <Logo />
+                <Typography align="center" className={classes.title}>
+                        Your Workout Log
+                </Typography>
                 <WorkoutList workouts={log}/>
                 <NavBar />
             </Container>
