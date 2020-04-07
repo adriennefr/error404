@@ -40,7 +40,6 @@ const useStyles = makeStyles((theme) => ({
 export default function WorkoutList({ workouts }) {
   const classes = useStyles();
 
-
   return (
     <Grid container justify="center">
       { workouts && workouts.map(((workout) => {
