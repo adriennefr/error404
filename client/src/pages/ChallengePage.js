@@ -38,7 +38,7 @@ function ChallengePage() {
       time: currentTime,
       exercises: wod
     }, user._id).then((res) => {
-      // Send user to homepage...
+      // Send user to workoutlog...
       if (res.data.success) {
         console.log(res.data)
         setCurrentUser(res.data._doc);
