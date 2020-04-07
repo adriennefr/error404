@@ -6,13 +6,13 @@ h1 {
     text-align: center;
 }
 
-.stopwatch {
+/* .stopwatch {
     font-size: 175%;
     background-color: white;
     padding: 10%;
     margin-top: 10%;
     border-radius: 4%;
-}
+} */
 
 .timerBtn {
     font-size: 100%;
@@ -20,7 +20,7 @@ h1 {
     border-radius: 75%;
 }
 
-.startBtn {
+/* .startBtn {
     background-color: #85FFCE;
 }
 
@@ -30,4 +30,4 @@ h1 {
 
 .resetBtn {
     background-color: rgb(121, 172, 192);
-}
+} */

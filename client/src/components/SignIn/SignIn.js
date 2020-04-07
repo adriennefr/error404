@@ -48,6 +48,8 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
     backgroundColor: "#85FFCE",
     fontSize: 15,
+    fontFamily: "Bellota",
+    fontWeight: "bold"
   },
 }));
 
@@ -91,7 +93,7 @@ export default function SignIn() {
       {/* <Avatar className={classes.avatar}> */}
       {/* <LockOutlinedIcon /> */}
       {/* </Avatar> */}
-      <Typography component="h1" variant="h5">
+      <Typography style={{color: "#4E5659"}} component="h1" variant="h5">
         Sign in
         </Typography>
       <form className={classes.form} noValidate onSubmit={(event) => signIn(event)}>
@@ -126,14 +128,14 @@ export default function SignIn() {
           type="submit"
           fullWidth
           variant="contained"
-          color="#ef8354"
+          color="#4E5659"
           id="loginBtn"
           className={classes.submit}
         >
           Sign In
           </Button>
-        <Grid container>
-          <Grid item>
+        <Grid justify="center" container>
+          <Grid  item>
             <Link to="/signup" variant="body2">
               Don't have an account? Sign Up
               </Link>

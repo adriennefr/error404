@@ -49,8 +49,9 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
     backgroundColor: "#85FFCE",
-    color: "white",
     fontSize: 15,
+    fontFamily: "Bellota",
+    fontWeight: "bold"
   },
   gridContainer: {
     display: "flex",
@@ -166,14 +167,14 @@ export default function SignUp() {
           <Button
             fullWidth
             variant="contained"
-            color="#ef8354"
+            color="#4E5659"
             id="signUpBtn"
             className={classes.submit}
             onClick={() => signUp()}
           >
             Sign Up
           </Button>
-          <Grid container justify="flex-end">
+          <Grid container justify="center">
             <Grid item>
               <Link to="/" variant="body2">
                 Already have an account? Sign in

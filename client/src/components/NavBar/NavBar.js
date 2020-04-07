@@ -22,7 +22,8 @@ const useStyles = makeStyles((theme) => ({
     appBar: {
         top: 'auto',
         bottom: 0,
-        backgroundColor: "#4E5659",
+        background: "linear-gradient(180deg, #737373 30%, #4E5659 90%)",
+        
     },
     buttonColor: {
         color: "#85FFCE",

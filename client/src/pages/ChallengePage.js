@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#B8C0DB",
     height: "100%",
     minHeight: '100vh',
-    marginBottom: '64px'
   },
 }));
 

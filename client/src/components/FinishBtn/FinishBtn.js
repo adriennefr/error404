@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '14px',
         fontFamily: "Bellota",
         color: "red",
-        fontWeight: "bold"
+        fontWeight: "bold",
         }
 }));
 
