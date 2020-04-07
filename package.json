@@ -26,7 +26,7 @@
     "seed": "node scripts/seedDB.js && node scripts/tipsDB.js",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "cd client && npm install && npm run seed && npm run build"
   },
   "repository": {
     "type": "git",
