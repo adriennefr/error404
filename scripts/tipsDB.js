@@ -1,6 +1,6 @@
 let mongoose = require("mongoose");
 let db = require("../models/tips");
-console.log(db)
+// console.log(db)
 
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
@@ -11,6 +11,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
 // description: Deadlifts x 10 reps 
 
 let tipSeed = [
+
     {tip: ["The only bad workout is the one that did not happen."]},
     {tip: ["You're only one workout away from having a good mood."]},
     {tip: ["If it doesn't challenge you it won't change you."]},
@@ -35,7 +36,7 @@ let tipSeed = [
 db.deleteMany({})
     .then(() => db.insertMany(tipSeed))
     .then(data => {
-        console.log(data.length + " records inserted!");
+        // console.log(data.length + " records inserted!");
         process.exit(0);
     })
     .catch(err => {

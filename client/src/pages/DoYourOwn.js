@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
     pos: {
         marginBottom: 12,
     },
-    
+
 }));
 
 function WorkoutPage() {
@@ -78,14 +78,16 @@ function WorkoutPage() {
             time: currentTime,
             exercises: goals
         }, user._id).then((res) => {
+            // Send user to workoutlog...
             if (res.data.success) {
                 console.log(res.data)
                 setCurrentUser(res.data._doc);
                 history.push('/workoutlog')
-              }
-            })}
+            }
+        })
+    }
 
-    
+
 
 
     return (
@@ -100,22 +102,22 @@ function WorkoutPage() {
                     <Typography className={classes.title} color="textSecondary" gutterBottom>
                         Enter your exercises to help guide your workout!
                     </Typography>
-                    <div className="goalInput" style={{color: "white"}}>
-                        <Grid  container spacing={2}>
+                    <div className="goalInput" style={{ color: "white" }}>
+                        <Grid container spacing={2}>
                             {goals.map((goal, i) =>
                                 <>
                                     <Grid item xs={12}>
                                         <TextField
                                             label="Exercise"
-                                            InputLabelProps={{style: {fontFamily: 'Bellota', color: 'white'}}}
-                                            inputProps={{ style: { fontFamily: 'Bellota', color: 'white'}}}
+                                            InputLabelProps={{ style: { fontFamily: 'Bellota', color: 'white' } }}
+                                            inputProps={{ style: { fontFamily: 'Bellota', color: 'white' } }}
                                             // id="filled-size-small"
                                             defaultValue={goal}
                                             variant="filled"
                                             name={i}
                                             onChange={(e) => handleChange(e.target, i)}
                                             size="small"
-                                            style={{width: "100%", margin: "auto", backgroundColor: "#BFBFBF"}}
+                                            style={{ width: "100%", margin: "auto", backgroundColor: "#BFBFBF" }}
                                         />
                                     </Grid>
                                 </>
